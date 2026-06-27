@@ -8,7 +8,8 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
       <img
         src={src}
         alt={alt}
-        loading="eager"
+        loading="lazy"
+        decoding="async"
         draggable={false}
         className="partner-logo"
       />

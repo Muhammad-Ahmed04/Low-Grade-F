@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
 import { VIMEO_HERO } from "@/constants";
 
@@ -6,6 +6,33 @@ export default function Hero() {
   const logoRef   = useRef<HTMLImageElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const arrowRef  = useRef<HTMLDivElement>(null);
+  // Show a lightweight poster instantly; defer the heavy Vimeo player until the
+  // browser is idle so it never blocks first paint (big mobile win).
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    // On mobile or data-saver / slow connections, keep the poster only — the
+    // heavy background video isn't worth the bandwidth there.
+    const conn = (navigator as any).connection;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const saveData = conn?.saveData === true;
+    const slow = typeof conn?.effectiveType === "string" && /(^|\b)(2g|slow-2g)/.test(conn.effectiveType);
+    if (isMobile || saveData || slow) return;
+
+    const start = () => setShowVideo(true);
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    let idleId: number | undefined;
+    let toId: number | undefined;
+    if (ric) idleId = ric(start, { timeout: 2500 });
+    else toId = window.setTimeout(start, 1200);
+    return () => {
+      if (idleId !== undefined) (window as any).cancelIdleCallback?.(idleId);
+      if (toId !== undefined) clearTimeout(toId);
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -29,18 +56,39 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-[100dvh] overflow-hidden bg-black">
-      {/* Vimeo ambient background */}
-      <div className="absolute inset-0 overflow-hidden" style={{ pointerEvents: "none", zIndex: 0 }}>
-        <iframe
-          src={VIMEO_HERO}
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          className="vimeo-cover"
-          title="Hero background"
-          style={{ pointerEvents: "none" }}
-        />
-      </div>
+      {/* Instant poster — keeps the hero rich while the video loads */}
+      <img
+        src="/photos/hero-car.JPG"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+        draggable={false}
+      />
+
+      {/* Vimeo ambient background — deferred until idle, fades in over the poster */}
+      {showVideo && (
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            pointerEvents: "none",
+            zIndex: 0,
+            opacity: videoReady ? 1 : 0,
+            transition: "opacity 0.8s ease",
+          }}
+        >
+          <iframe
+            src={VIMEO_HERO}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="vimeo-cover"
+            title="Hero background"
+            style={{ pointerEvents: "none" }}
+            onLoad={() => setVideoReady(true)}
+          />
+        </div>
+      )}
 
       {/* Overlay */}
       <div

@@ -1,19 +1,39 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { gsap } from "@/lib/gsap";
 import { BEHOLD_FEED_ID, CONTACT } from "@/constants";
 
 export default function Community() {
   const sectionRef = useRef<HTMLElement>(null);
+  // Defer the third-party Instagram widget (script + feed images) until the
+  // section nears the viewport, so it never loads on initial page load.
+  const [visible, setVisible] = useState(false);
 
-  // Load Behold widget script once
   useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Load Behold widget script once, only after the section is near.
+  useEffect(() => {
+    if (!visible) return;
     const d = document;
     if (d.querySelector('script[src="https://w.behold.so/widget.js"]')) return;
     const s = d.createElement("script");
     s.type = "module";
     s.src = "https://w.behold.so/widget.js";
     d.head.append(s);
-  }, []);
+  }, [visible]);
 
   // GSAP scroll reveal
   useEffect(() => {
@@ -55,14 +75,16 @@ export default function Community() {
           </a>
         </div>
 
-        {/* Behold widget */}
-        <div
-          className="community-anim"
-          style={{ maxWidth: 1200, width: "100%", margin: "0 auto 48px" }}
-          dangerouslySetInnerHTML={{
-            __html: `<behold-widget feed-id="${BEHOLD_FEED_ID}"></behold-widget>`,
-          }}
-        />
+        {/* Behold widget — mounts only when the section is near the viewport */}
+        {visible && (
+          <div
+            className="community-anim"
+            style={{ maxWidth: 1200, width: "100%", margin: "0 auto 48px" }}
+            dangerouslySetInnerHTML={{
+              __html: `<behold-widget feed-id="${BEHOLD_FEED_ID}"></behold-widget>`,
+            }}
+          />
+        )}
 
         {/* Follow Us button */}
         <div className="flex justify-center community-anim">

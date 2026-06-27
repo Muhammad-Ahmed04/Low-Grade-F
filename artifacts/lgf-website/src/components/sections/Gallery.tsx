@@ -60,6 +60,8 @@ export default function Gallery() {
             <img
               src={photo.src}
               alt={photo.label}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               draggable={false}
               style={{ pointerEvents: "none", display: "block" }}

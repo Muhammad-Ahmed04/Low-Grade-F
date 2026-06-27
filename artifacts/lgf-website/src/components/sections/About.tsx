@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
@@ -13,6 +13,26 @@ export default function About() {
   // Live scroll progress (0 → 1) for the 3D scene. A plain ref so updating it
   // from ScrollTrigger never triggers a React re-render.
   const progress = useRef(0);
+  // Only mount the heavy three.js scene (its ~1 MB chunk + models) once the
+  // About section is near the viewport — keeps the initial page load light.
+  const [show3D, setShow3D] = useState(false);
+
+  useEffect(() => {
+    const el = sceneRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShow3D(true);
+          io.disconnect();
+        }
+      },
+      // Start loading ~one screen early so it's ready by the time it's in view.
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = sceneRef.current;
@@ -78,9 +98,11 @@ export default function About() {
             className="relative h-[420px] sm:h-[500px] lg:h-[620px] order-1 lg:order-2"
             style={{ zIndex: 1 }}
           >
-            <Suspense fallback={null}>
-              <CameraGimbalScene progress={progress} />
-            </Suspense>
+            {show3D && (
+              <Suspense fallback={null}>
+                <CameraGimbalScene progress={progress} />
+              </Suspense>
+            )}
             {/* CC-BY attribution for the two Poly Pizza models */}
             <p className="absolute bottom-0 right-0 text-[10px] leading-tight text-gray-600/70 select-none pointer-events-none">
               {/* 3D: “DJI RS3 Mini gimbal” by MisterGoodDeal · “Video Camera” by dook (CC-BY) */}
