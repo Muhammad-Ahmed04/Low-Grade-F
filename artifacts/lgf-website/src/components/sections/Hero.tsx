@@ -12,14 +12,8 @@ export default function Hero() {
   const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
-    // On mobile or data-saver / slow connections, keep the poster only — the
-    // heavy background video isn't worth the bandwidth there.
-    const conn = (navigator as any).connection;
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const saveData = conn?.saveData === true;
-    const slow = typeof conn?.effectiveType === "string" && /(^|\b)(2g|slow-2g)/.test(conn.effectiveType);
-    if (isMobile || saveData || slow) return;
-
+    // Load the background video on all devices, but only once the browser is
+    // idle so it never blocks first paint (the poster shows immediately).
     const start = () => setShowVideo(true);
     const ric = (window as any).requestIdleCallback as
       | ((cb: () => void, opts?: { timeout: number }) => number)
