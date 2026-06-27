@@ -1,0 +1,120 @@
+Let me scan the full site first!The site isn't returning its HTML to me — it's likely JavaScript-rendered so I can't do a deep code scan. But based on everything you've shared across screenshots and your feedback, here's my full assessment + icon recommendation:
+
+---
+
+**On the icons** — honestly the best move is to **ditch SVG illustrations entirely** and switch to **Lucide or Phosphor icons** styled with the chrome gradient treatment. Here's why they'll look 10x better:
+
+- They're ultra-clean, geometric, minimal — like what you see on premium tech and automotive brand sites
+- Styled with your silver gradient + glow they look expensive, not clipart
+- A steering wheel icon, a crosshair/scope, and a clapperboard/aperture will instantly read as premium
+
+Now here's the full combined prompt:
+
+---
+
+**LGF WEBSITE — FULL SCAN, BUG FIX + ICON OVERHAUL**
+
+Do a **complete audit of the entire site** — every section, every element, every breakpoint. Fix ALL of the following:
+
+---
+
+### 🔴 BUG FIXES — TEXT, BUTTONS & OVERLAPS
+
+**General**
+- Scan every section for text overflowing its container — fix with proper `max-width`, `word-break`, or font-size scaling
+- Check every button — all must be fully visible, properly padded, and have working hover states
+- Check every section for z-index conflicts causing overlapping elements — navbar, hero text, about section, gallery overlays
+- Ensure no section bleeds into another unexpectedly
+- `overflow-x: hidden` on body to eliminate any horizontal scroll
+
+**Navbar**
+- Must stay fixed on top of everything with correct `z-index: 1000`
+- Logo must not overlap nav links on any screen size
+- Hamburger icon must be visible on mobile and fully functional
+
+**Hero**
+- `padding-top` minimum `120px` desktop, `100px` mobile so text never touches navbar
+- Headline text must never overflow or wrap awkwardly — scale font size down on smaller screens
+- CTA button must be fully visible with correct silver gradient border + hover fill
+
+**About Section**
+- Vertical silver line accent must be visible and properly positioned
+- Gun barrel breakout effect must not cause layout overflow or z-index issues on desktop
+- On mobile: breakout effect OFF, image stacks below text cleanly
+
+**Services / What We Do**
+- Card borders, hover lift, and glow must all work correctly
+- Fix any text inside cards that's overflowing or getting clipped
+
+**Gallery**
+- Drag scroll must work on desktop, touch swipe on mobile
+- Hover overlay text must appear correctly over images — check z-index
+- No broken image slots visible — empty slots get `background: #111`
+
+**Behind the Lens**
+- Captions on hover must appear correctly — check z-index and opacity transitions
+- Asymmetric grid must not break on medium screen sizes (tablets)
+
+**Contact Section**
+- All form field labels and inputs must be fully visible — check color contrast (light text on dark bg)
+- Submit button must be styled correctly
+- WhatsApp pulsing glow button must be visible and functional
+- Email address must display correctly
+
+**Footer**
+- Silver top border must be visible
+- Icons and copyright text must all be on one line on desktop, stack cleanly on mobile
+
+---
+
+### 🎨 SERVICES SECTION — ICON REPLACEMENT
+
+Remove the current SVG illustration icons entirely. Replace with **Phosphor Icons** (load from CDN: `https://unpkg.com/phosphor-icons`) styled with the chrome metallic treatment:
+
+**Card 1 — AUTOMOBILE**
+- Icon: `<i class="ph-steering-wheel">` (Phosphor steering wheel)
+- Size: `64px`
+
+**Card 2 — TACTICAL & FIREARMS**
+- Icon: `<i class="ph-crosshair">` (Phosphor crosshair)
+- Size: `64px`
+
+**Card 3 — COMMERCIAL & BRAND**
+- Icon: `<i class="ph-aperture">` (Phosphor aperture/lens)
+- Size: `64px`
+
+**Chrome styling for ALL icons — apply this CSS:**
+```css
+.service-icon {
+  font-size: 64px;
+  background: linear-gradient(145deg, #ffffff 0%, #a0a0a0 30%, #e8e8e8 60%, #606060 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0px 4px 12px rgba(180,180,180,0.25));
+  transition: filter 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  filter: drop-shadow(0px 4px 24px rgba(220,220,220,0.6));
+}
+```
+
+These icons are geometric, ultra-clean, and with the chrome gradient treatment they will look like premium automotive brand iconography — not childish illustrations.
+
+---
+
+### 📱 MOBILE — FINAL SWEEP
+
+Check every section at 375px width:
+- No text overflowing
+- No elements overlapping
+- All buttons tappable (min 44px height)
+- Gallery swipeable
+- Contact form usable
+- Footer readable
+
+---
+
+### ✅ FINAL SIGN-OFF
+After all fixes, scroll through the entire site on both desktop and mobile and confirm zero visual bugs before finishing.

@@ -1,0 +1,106 @@
+Here's the full combined prompt:
+
+---
+
+**LGF WEBSITE — FULL REVISION PROMPT**
+
+Go through the **entire website thoroughly** from top to bottom — every section, every element, every interaction. Here is a full list of issues to fix and improvements to make:
+
+---
+
+### 🔴 CRITICAL FIXES
+
+**1. Hero text overlapping navbar**
+- `"WE SHOOT WHAT OTHERS CAN'T."` is hitting the very top of the screen with no breathing room
+- Add `padding-top` to the hero section so the text starts well below the navbar. Minimum `padding-top: 120px` on desktop, `100px` on mobile
+- The navbar is fixed/absolute — hero content must account for that height
+
+**2. Partner logos showing blank/empty**
+- The Porsche logo and other partner logos are rendering as blank white boxes — the image content inside is invisible
+- Remove `filter: brightness(0) invert(1)` from partner logos — this is nuking logos that are already dark/black on transparent backgrounds and making them invisible
+- Instead: display them as-is with `opacity: 0.75` and on hover `opacity: 1`
+- Make sure all `<img>` tags in the partners section have correct `src` paths and are actually loading
+
+---
+
+### 🟡 IMPROVEMENTS — GO THROUGH EVERY SECTION
+
+**Navbar**
+- Confirm it's fixed, transparent on load, goes solid black with silver bottom border on scroll
+- Logo must be visible and correctly sized — not too large, not tiny
+- All nav links must smooth scroll to correct sections
+- Mobile: hamburger menu must open a full-screen black overlay with nav links centered
+
+**Hero**
+- Text hierarchy: `"WE SHOOT"` white, `"WHAT OTHERS CAN'T."` silver chrome gradient
+- Car image on the right must be full height, no cropping of the car
+- Vignette gradient left side so text is always readable
+- CTA button `"See Our Work"` must be visible and working
+
+**About Section — WITH GUN BARREL BREAKOUT EFFECT**
+- Vertical silver line accent on the left must be visible
+- Copy must be punchy — replace any placeholder text with: *"Low Grade Films is a Karachi-based creative production house built for the bold. We specialize in making machines, metal, and firepower look extraordinary on camera. From supercar shoots in the desert to tactical firearms content, we don't just document — we craft cinema."*
+- The right-side image should feature a gun/firearm photo where the barrel is pointed toward the left (toward the text side)
+- The image container must have `overflow: visible` — the gun barrel must visually extend **beyond the image boundary** and overlap into the text column
+- Achieve this by positioning the image with `object-position` so the barrel is at the left edge, then letting the `<img>` extend past its parent div via `transform: translateX(-60px)` or similar
+- Ideally use a **PNG with transparent background** for the cleanest breakout — if not available, use `clip-path` creatively to fake the depth effect
+- Add a subtle dark shadow/glow behind the barrel where it overlaps the text area so it feels like it has depth and is truly "coming out" of the frame
+- On mobile: disable the breakout effect, show image normally stacked below text
+
+**Services Section**
+- All 3 cards must have visible silver gradient top border
+- Hover lift effect (`translateY -6px` + silver glow) must work
+- Icons must be visible and relevant — car, crosshair, camera
+
+**Portfolio / Gallery**
+- Horizontal drag-scroll must work smoothly on both desktop AND mobile (touch swipe)
+- Images must load correctly — check all `src` paths
+- Hover overlay with category label in silver text must work
+- If any image slots are empty, fill with a dark placeholder `background: #111` so the layout doesn't break
+
+**Behind the Lens Section**
+- Asymmetric grid: 1 large left, 2 stacked right
+- Hover silver border + caption must work
+- Captions: `"On location — Desert Shoot"`, `"Automobile Showroom, Karachi"`, `"Behind the frame"`
+
+**Partners / Trusted By**
+- Fix logo visibility issue (see critical fix #2 above)
+- Marquee auto-scroll must be smooth and infinite with no jumps
+- Silver 1px top and bottom borders on the ticker row must be visible
+
+**Contact Section**
+- Form fields must be visible — dark background with silver/white border on input fields
+- Dropdown for Project Type must work
+- WhatsApp button pulsing green glow animation must be working
+- Email placeholder `hello@lowgradefilms.com` must show
+
+**Footer**
+- LGF logo left, copyright center, Instagram + YouTube icons right
+- 1px silver top border must be visible
+
+---
+
+### 📱 MOBILE RESPONSIVENESS — MAKE IT FULLY RESPONSIVE
+
+Go through every single section on mobile (375px viewport) and fix:
+- Navbar collapses to hamburger, full-screen overlay opens/closes correctly
+- Hero: full-bleed car image as background, text overlay on top, readable with dark overlay
+- About: stacks vertically (image below text), gun breakout effect disabled on mobile
+- Services: 3 cards stack vertically, full width
+- Gallery: touch swipe works smoothly
+- Behind the Lens: stacks to single column
+- Partners ticker: works on mobile
+- Contact: form and WhatsApp block stack vertically
+- No horizontal overflow anywhere on mobile — `overflow-x: hidden` on body if needed
+- All font sizes scale down appropriately — no text overflowing its container
+- Tap targets (buttons, nav links) minimum 44px height
+
+---
+
+### ✅ FINAL CHECK
+After making all fixes, do a full scroll-through of the site and confirm:
+- No broken images
+- No layout breaks
+- All animations triggering correctly
+- All links and buttons functional
+- Looks sharp on both desktop and mobile

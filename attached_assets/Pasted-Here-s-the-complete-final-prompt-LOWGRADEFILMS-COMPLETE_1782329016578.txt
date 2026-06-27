@@ -1,0 +1,258 @@
+Here's the complete final prompt:
+
+---
+
+**LOWGRADEFILMS — COMPLETE WEBSITE BUILD**
+
+Build a single-page, fully responsive website for **LOWGRADEFILMS** — a premium videography and photography company specializing in automobile, tactical/guns, and commercial brand content. The site should feel like a high-end automotive brand meets a cinematic production house.
+
+---
+
+### TECH STACK
+- HTML, CSS, Vanilla JS (no frameworks needed)
+- GSAP + ScrollTrigger for scroll animations (load from CDN)
+- Phosphor Icons (load from CDN: `https://unpkg.com/phosphor-icons`)
+- Google Fonts
+
+---
+
+### BRAND & VISUAL IDENTITY
+
+**Colors:**
+- Background: `#000000` (pure black)
+- Primary text: `#FFFFFF`
+- Accent / Chrome Silver: `#C0C0C0` to `#E8E8E8` gradient (metallic, like a polished car badge)
+- Gradient usage: silver-to-white gradients on headings, borders, and CTA buttons. Think chrome car emblem, not flat grey.
+
+**Typography:**
+- Headings: `Bebas Neue` — bold, wide, uppercase
+- Body: `Inter` — clean, modern
+- Letter-spacing on headings: `0.08–0.12em`
+
+**Logo:**
+- `lgf-logo.png` — display in navbar and hero. It is a 3D chrome metallic logo on black — respect this aesthetic throughout.
+
+**Overall vibe references:**
+- the-lowdown.com — cinematic, full-bleed, editorial scroll
+- ciridae.com — dark, full-bleed imagery
+- nayapay.com/business — bold gradients, 3D elements
+- basicagency.com — typographic punch
+- dayy.com — smooth premium scroll
+
+**Global rules:**
+- No rounded corners anywhere — sharp, automotive edges only
+- No stock-looking design — every choice should feel like it belongs in a car commercial
+- Silver must always feel metallic and gradient — never flat grey
+- Whitespace is intentional — do not crowd the layout
+- `overflow-x: hidden` on body
+
+---
+
+### SECTIONS IN ORDER
+
+---
+
+#### 1. NAVBAR
+- Fixed, transparent on load → solid black with 1px silver bottom border on scroll
+- Left: `lgf-logo.png` — correctly sized, not too large
+- Right: nav links — Work, Films, About, Partners, Contact
+- All links smooth scroll to their sections
+- `z-index: 1000`
+- Mobile: hamburger icon → full-screen black overlay, nav links centered and large
+- Hamburger open/close must work correctly
+
+---
+
+#### 2. HERO — FULLSCREEN AUTOPLAY VIDEO
+- Full viewport `100vh`
+- Background: `hero-video.mp4` — autoplay, muted, looped, `object-fit: cover`
+- Dark overlay: `rgba(0,0,0,0.45)`
+- Centered overlay content:
+  - `lgf-logo.png` large and centered
+  - Tagline below: `"AUTOMOBILE. TACTICAL. COMMERCIAL."` — Bebas Neue, silver chrome gradient, generous letter-spacing
+  - No CTA button — let the video speak
+- Subtle animated down-arrow at bottom center (CSS bounce animation)
+- `padding-top: 120px` desktop, `100px` mobile so content never touches navbar
+- Mobile: video plays muted fullscreen cover
+
+---
+
+#### 3. SHORT FILMS — TWO VIDEO SHOWCASE
+- Section heading: `"FILMS"` — left-aligned, massive, chrome gradient, Bebas Neue
+- Two full-width video panels side by side (stack vertically on mobile), each `50vh` tall
+- Each panel: autoplay, muted, looped preview video
+- On hover: video brightens slightly, centered play button appears (circle with triangle, silver outline)
+- Clicking play button opens video in fullscreen lightbox with sound enabled
+- Bottom overlay on each panel: film title in large Bebas Neue + one-line descriptor
+  - Film 1: `"DESERT MACHINES"` / `"Karachi's finest automobiles, raw desert, cinematic fire."` — file: `film-1.mp4`
+  - Film 2: `"STEEL & SMOKE"` / `"Tactical. Precise. Unfiltered."` — file: `film-2.mp4`
+- Mobile: panels stack vertically, each `40vh`
+
+---
+
+#### 4. THE WORK — HORIZONTAL CINEMATIC GALLERY
+- Section heading: `"THE WORK"` — left-aligned, massive, chrome gradient
+- Horizontally drag-scrollable photo strip
+- Cards: `320px × 480px`, edge to edge feel, minimal gap
+- On hover: scale `1.04`, silver category label fades in as overlay
+- Mouse drag scroll (mousedown + mousemove) AND touch swipe both work
+- Empty slots get `background: #111` so layout never breaks
+- Placeholder slots: `gallery-1.jpg` through `gallery-10.jpg`
+
+---
+
+#### 5. ABOUT — WITH GUN BARREL BREAKOUT EFFECT
+- Full-width section, black background
+- Left: vertical silver chrome line accent + heading `"LOWGRADEFILMS"` in Bebas Neue + copy:
+*"A Karachi-based creative production house built for the bold. We specialize in making machines, metal, and firepower look extraordinary on camera. From supercar shoots in the desert to tactical firearms content — we don't just document. We craft cinema."*
+- Right: gun/firearm photo (`about-photo.jpg`) with barrel pointing LEFT
+- Image container: `overflow: visible` — barrel extends beyond image boundary into text column via `transform: translateX(-60px)`
+- Subtle dark depth shadow behind the barrel where it overlaps text area
+- Mobile: breakout effect OFF, image stacks below text normally
+
+---
+
+#### 6. SERVICES — BTS PHOTO BACKGROUND CARDS
+- Section heading: `"WHAT WE DO"` — chrome gradient, centered, Bebas Neue
+- 3 full-bleed cards side by side (stack vertically on mobile)
+- Each card has BTS photo as `background-image`:
+  - Card 1: `bts-1.jpg` — `AUTOMOBILE PHOTOGRAPHY & FILM`
+  - Card 2: `bts-2.jpg` — `TACTICAL & FIREARMS PHOTOGRAPHY`
+  - Card 3: `bts-3.jpg` — `COMMERCIAL & BRAND SHOOTS`
+- Dark gradient overlay per card: `linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%)`
+- On hover: overlay lightens to `rgba(0,0,0,0.4)`, card lifts `translateY -6px`, silver glow
+- Silver gradient top border on each card
+- Phosphor icons styled with chrome metallic gradient (`background: linear-gradient(145deg, #ffffff 0%, #a0a0a0 30%, #e8e8e8 60%, #606060 100%)`, `-webkit-background-clip: text`, `-webkit-text-fill-color: transparent`):
+  - Card 1: `ph-steering-wheel` — 64px
+  - Card 2: `ph-crosshair` — 64px
+  - Card 3: `ph-aperture` — 64px
+- Icon hover: `filter: drop-shadow(0px 4px 24px rgba(220,220,220,0.6))`
+- All text fully legible at all times
+
+---
+
+#### 7. BEHIND THE LENS
+- Section heading: `"BEHIND THE LENS"` — chrome gradient, centered
+- Subheading: `"The craft behind every frame."` — Inter, silver, smaller
+- Asymmetric grid: 1 large portrait image left, 2 landscape images stacked right
+- Images bleed edge to edge within grid cell — no borders by default
+- On hover: silver border appears + caption fades in:
+  - `bts-1.jpg` → `"On location — Desert Shoot"`
+  - `bts-2.jpg` → `"Automobile Showroom, Karachi"`
+  - `bts-3.jpg` → `"Behind the frame"`
+- Mobile: single column stack
+
+---
+
+#### 8. COMMUNITY — INSTAGRAM FEED
+- Section heading: `"COMMUNITY"` — chrome gradient, centered, Bebas Neue
+- Subheading: `"@lowgradefilms"` — clickable, links to `https://www.instagram.com/lowgradefilms`
+- Embed the following Behold.so Instagram widget exactly as written below — do not modify the embed code:
+
+```html
+<behold-widget feed-id="CshoDpAzaLz8Unyr7NmE"></behold-widget>
+<script>
+  (() => {
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";d.head.append(s);
+  })();
+</script>
+```
+
+- Wrap the embed in a div: `<div class="behold-wrapper">` — centered, full width up to `1200px` max, `width: 100%`, no horizontal overflow
+- Do not apply any CSS that could conflict with the Behold widget's internal layout
+- Below the widget: `"FOLLOW US"` button linking to `https://www.instagram.com/lowgradefilms` — silver gradient border, black fill, white text, hover fills silver
+- Mobile: Behold handles its own responsive layout, wrapper just needs `width: 100%`
+
+---
+
+#### 9. TRUSTED BY — PARTNER LOGOS
+- Section heading: `"TRUSTED BY"` — centered, silver chrome gradient, Bebas Neue
+- Smooth infinite CSS marquee — `will-change: transform`, `animation: linear infinite`, no JS
+- Duplicate logo set inside marquee for seamless loop with zero gap or flash
+- Logo height: `48px` desktop, `36px` mobile — `width: auto`, never distorted
+- Gap between logos: `60px`
+- Per-logo filter — check each image and apply correct treatment:
+  - Light/white logo → `opacity: 0.85`, no filter
+  - Dark/black logo on transparent bg → `filter: invert(1)`, `opacity: 0.85`
+  - Colored logo → `filter: brightness(0) invert(1)`, `opacity: 0.85`
+- Hover per logo: `opacity: 1` + `filter: drop-shadow(0px 0px 8px rgba(255,255,255,0.3))` + marquee pauses (`animation-play-state: paused`)
+- Silver 1px top and bottom border on ticker row
+- `image-rendering: crisp-edges` on all logo images
+- Placeholder slots: `partner-1.png` through `partner-8.png`
+
+---
+
+#### 10. CONTACT
+- Section heading: `"LET'S CREATE SOMETHING."` — chrome gradient, centered, Bebas Neue
+- Subheading: `"Drop us a message or hit us on WhatsApp — we respond fast."` — Inter, silver
+- Left: contact form
+  - Fields: Name, Email, Project Type dropdown (Automobile / Tactical / Commercial / Other), Message
+  - Input styling: black background, silver/white border, white text, no rounded corners
+  - Submit button: silver gradient border, black fill, white text, hover fills silver
+- Right: WhatsApp card (`#0D0D0D` background)
+  - Bold heading: `"Prefer to chat?"`
+  - Subtext: `"Message us directly on WhatsApp"`
+  - Button: `"Open WhatsApp"` → `https://wa.me/[PHONENUMBER]` — green background, pulsing green glow animation (`box-shadow` keyframe animation)
+  - Email line: `hello@lowgradefilms.com`
+- Mobile: form and WhatsApp card stack vertically
+
+---
+
+#### 11. FOOTER
+- Left: `lgf-logo.png`
+- Center: `© 2025 LOWGRADEFILMS. All rights reserved.`
+- Right: Instagram icon → `https://www.instagram.com/lowgradefilms` + YouTube icon → `[YOUTUBE LINK]`
+- 1px silver top border
+- Mobile: stacks cleanly, all on separate lines centered
+
+---
+
+### ANIMATIONS (GSAP + ScrollTrigger)
+- All sections: `opacity: 0 → 1`, `y: 40 → 0`, `duration: 0.8`, `ease: power2.out` on scroll enter
+- Hero tagline: staggered fade-up on page load
+- Service cards: staggered `0.15s` between each
+- No jarring effects — smooth, cinematic, premium
+
+---
+
+### MOBILE RESPONSIVENESS — EVERY SECTION AT 375px
+- Navbar: hamburger works, overlay opens/closes
+- Hero: video fullscreen cover, text readable
+- Films: panels stack vertically
+- Gallery: touch swipe works smoothly
+- About: gun breakout OFF, image stacks below text
+- Services: 3 cards stack vertically full width
+- Behind the Lens: single column
+- Community: Behold widget responsive, Follow Us button visible
+- Partners: marquee works, logos correct size
+- Contact: form + WhatsApp stack vertically
+- Footer: stacks cleanly centered
+- No horizontal overflow anywhere
+- All tap targets minimum `44px` height
+- Font sizes scale down — no text overflowing containers
+
+---
+
+### FILES TO USE
+- `lgf-logo.png` — logo (navbar + hero + footer)
+- `hero-video.mp4` — hero background video
+- `film-1.mp4` — first short film
+- `film-2.mp4` — second short film
+- `about-photo.jpg` — gun barrel breakout image
+- `gallery-1.jpg` through `gallery-10.jpg` — portfolio strip
+- `bts-1.jpg`, `bts-2.jpg`, `bts-3.jpg` — services card backgrounds + behind the lens
+- `partner-1.png` through `partner-8.png` — partner logo ticker
+
+---
+
+### FINAL CHECK
+After building, scroll through the entire site on both desktop and mobile and confirm:
+- Zero broken images or videos
+- Zero layout breaks or text overflow
+- All animations triggering correctly
+- All links and buttons functional
+- Behold Instagram widget loading correctly
+- Marquee scrolling smoothly
+- Gun barrel breakout effect working on desktop
+- Site looks premium, cinematic, and sharp at all screen sizes

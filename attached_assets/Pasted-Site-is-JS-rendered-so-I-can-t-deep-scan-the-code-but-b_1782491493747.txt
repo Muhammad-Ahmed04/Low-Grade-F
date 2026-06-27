@@ -1,0 +1,126 @@
+Site is JS-rendered so I can't deep scan the code, but based on everything we've built and your red text flag, here's the full consistency prompt:
+
+---
+
+**LOWGRADEFILMS — FULL COLOR & TYPOGRAPHY CONSISTENCY AUDIT**
+
+Go through the **entire codebase** — every HTML element, every CSS class, every inline style — and enforce a single consistent color and typography system across the whole site. No exceptions.
+
+---
+
+### THE ONLY PERMITTED COLORS ON THIS SITE
+
+```
+Black:          #000000  — backgrounds only
+Dark card:      #0D0D0D  — card/section backgrounds
+White:          #FFFFFF  — primary body text, headings
+Chrome Silver:  linear-gradient(145deg, #ffffff 0%, #a0a0a0 30%, #e8e8e8 60%, #606060 100%) — gradient headings, accents
+Silver flat:    #C0C0C0  — secondary text, descriptors, captions
+Subtle grey:    #999999  — smallest body text, meta labels
+Green:          #25D366  — WhatsApp button ONLY
+1px borders:    #333333  — subtle dividers
+```
+
+**BANNED COLORS — find and eliminate every instance:**
+- ❌ Any red, orange-red, crimson (`#CC2200`, `#FF3300`, `#FF0000`, `red` or any variant) — this came from the-lowdown reference, it does NOT belong on LGF
+- ❌ Any blue, purple, or other brand colors
+- ❌ Any flat grey that isn't `#999999` or `#C0C0C0`
+- ❌ Any warm tones (beige, cream, off-white with yellow cast)
+
+---
+
+### TYPOGRAPHY RULES — ENFORCE EVERYWHERE
+
+**Headings (all section titles, all card titles):**
+- Font: `Bebas Neue`
+- Color: either `#FFFFFF` solid OR chrome silver gradient (`-webkit-background-clip: text`)
+- Letter spacing: `0.08em` minimum
+- Text transform: `uppercase` always
+- No other font for any heading anywhere
+
+**Body / descriptive text:**
+- Font: `Inter`
+- Color: `#FFFFFF` for main body, `#C0C0C0` for secondary, `#999999` for smallest labels
+- Normal letter spacing
+- No uppercase on body text
+
+**CTA labels / small accent text (like the "EXPERIENCE ›" under films):**
+- Font: `Inter`, bold, uppercase
+- Color: `#C0C0C0` silver — **NOT red, NOT any other color**
+- The arrow/chevron `›` same color as the label text
+
+**Buttons:**
+- Background: `#000000`
+- Border: silver gradient or `#C0C0C0` 1px solid
+- Text: `#FFFFFF`
+- Hover: background fills with silver gradient, text stays white
+- Exception: WhatsApp button only uses green `#25D366`
+
+**Form inputs:**
+- Background: `#0D0D0D`
+- Border: `#333333` default, `#C0C0C0` on focus
+- Text: `#FFFFFF`
+- Placeholder text: `#666666`
+- No colored borders on focus — silver only
+
+---
+
+### SECTION BY SECTION — CHECK AND FIX EACH ONE
+
+**Navbar**
+- All nav links: `#FFFFFF`, hover: silver gradient text
+- No colored underlines or highlights
+
+**Hero**
+- Tagline: chrome silver gradient text
+- Down arrow: `#C0C0C0`
+
+**Short Films**
+- Film titles below panels: `#FFFFFF`, Bebas Neue
+- `"EXPERIENCE ›"` and `"EXPLORE ›"` labels: `#C0C0C0` silver — remove red immediately
+- Arrow icons: `#C0C0C0`
+
+**The Work / Gallery**
+- Category hover labels: `#C0C0C0` silver
+- No colored overlays
+
+**About**
+- Body copy: `#FFFFFF` or `#C0C0C0`
+- Silver vertical line accent: `#C0C0C0` or silver gradient
+
+**Services / What We Do**
+- Card titles: `#FFFFFF`, Bebas Neue
+- Card descriptions: `#C0C0C0`
+- Icons: chrome silver gradient only
+- Silver gradient top border on each card
+
+**Behind the Lens**
+- Captions: `#C0C0C0`
+- Hover border: `#C0C0C0` 1px
+
+**Community**
+- Section heading: chrome silver gradient
+- `"@lowgradefilms"` link: `#C0C0C0`, hover: `#FFFFFF`
+- Follow Us button: standard silver border button
+
+**Partners**
+- All logos: white/silver monochrome only
+- Section heading: chrome silver gradient
+
+**Contact**
+- All labels and placeholder text: correct colors per typography rules above
+- No colored accents anywhere except the green WhatsApp button
+
+**Footer**
+- Copyright text: `#666666`
+- Icon links: `#C0C0C0`, hover: `#FFFFFF`
+- Top border: `#333333`
+
+---
+
+### FINAL STEPS
+
+1. Do a global search across all CSS files for: `red`, `#CC`, `#FF`, `orange`, `crimson`, `rgb(255` — eliminate every hit that isn't the WhatsApp green
+2. Do a global search for any font-family that isn't `Bebas Neue` or `Inter` — remove it
+3. Scroll through the entire site after changes and confirm every single element follows this system
+4. The site should feel like it was designed with ONE color palette from day one — black, white, and chrome silver. Nothing else.

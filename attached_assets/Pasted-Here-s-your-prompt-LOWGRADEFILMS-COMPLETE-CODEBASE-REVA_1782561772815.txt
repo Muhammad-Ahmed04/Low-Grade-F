@@ -1,0 +1,499 @@
+Here's your prompt:
+
+---
+
+**LOWGRADEFILMS — COMPLETE CODEBASE REVAMP (REACT + NODE.JS)**
+
+Revamp the entire LOWGRADEFILMS website from scratch using modern, clean, professional code. The visual design, content, and functionality stays exactly the same — only the codebase is being rebuilt to a professional standard.
+
+---
+
+### TECH STACK
+
+```
+Frontend:  React.js (Vite)
+Backend:   Node.js + Express (for contact form handling)
+Styling:   CSS Modules or styled-components
+Routing:   React Router DOM (single page)
+Animations: GSAP + ScrollTrigger
+Icons:     Phosphor React
+Fonts:     Google Fonts (Bebas Neue + Inter)
+```
+
+---
+
+### PROJECT STRUCTURE
+
+```
+lowgradefilms/
+├── client/                          # React frontend
+│   ├── public/
+│   │   ├── assets/
+│   │   │   ├── images/              # All images
+│   │   │   │   ├── lgf-logo.png
+│   │   │   │   ├── about-photo.jpg
+│   │   │   │   ├── gallery-1.jpg
+│   │   │   │   └── ... etc
+│   │   │   └── partners/            # Partner logos
+│   │   │       ├── partner-1.png
+│   │   │       └── ... etc
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar/
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   └── Navbar.module.css
+│   │   │   ├── Hero/
+│   │   │   │   ├── Hero.jsx
+│   │   │   │   └── Hero.module.css
+│   │   │   ├── Films/
+│   │   │   │   ├── Films.jsx
+│   │   │   │   └── Films.module.css
+│   │   │   ├── Gallery/
+│   │   │   │   ├── Gallery.jsx
+│   │   │   │   └── Gallery.module.css
+│   │   │   ├── About/
+│   │   │   │   ├── About.jsx
+│   │   │   │   └── About.module.css
+│   │   │   ├── Services/
+│   │   │   │   ├── Services.jsx
+│   │   │   │   └── Services.module.css
+│   │   │   ├── BehindTheLens/
+│   │   │   │   ├── BehindTheLens.jsx
+│   │   │   │   └── BehindTheLens.module.css
+│   │   │   ├── Community/
+│   │   │   │   ├── Community.jsx
+│   │   │   │   └── Community.module.css
+│   │   │   ├── Partners/
+│   │   │   │   ├── Partners.jsx
+│   │   │   │   └── Partners.module.css
+│   │   │   ├── Contact/
+│   │   │   │   ├── Contact.jsx
+│   │   │   │   └── Contact.module.css
+│   │   │   └── Footer/
+│   │   │       ├── Footer.jsx
+│   │   │       └── Footer.module.css
+│   │   ├── hooks/
+│   │   │   ├── useScrollAnimation.js  # Reusable GSAP hook
+│   │   │   └── useDragScroll.js       # Reusable drag scroll hook
+│   │   ├── constants/
+│   │   │   └── index.js               # All site data (gallery images, partners, services etc)
+│   │   ├── styles/
+│   │   │   ├── globals.css            # Global styles, CSS variables, fonts
+│   │   │   └── animations.css         # Shared animation classes
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── server/                            # Node.js backend
+│   ├── index.js                       # Express server entry point
+│   ├── routes/
+│   │   └── contact.js                 # Contact form POST route
+│   └── package.json
+│
+├── .gitignore
+├── .env.example
+└── README.md
+```
+
+---
+
+### GLOBAL CSS VARIABLES
+
+Define these once in `globals.css` and use everywhere — no hardcoded colors anywhere in the codebase:
+
+```css
+:root {
+  --color-black: #000000;
+  --color-dark-card: #0D0D0D;
+  --color-white: #FFFFFF;
+  --color-silver: #C0C0C0;
+  --color-silver-light: #E8E8E8;
+  --color-silver-dark: #606060;
+  --color-grey-subtle: #999999;
+  --color-border: #333333;
+  --color-whatsapp: #25D366;
+
+  --gradient-chrome: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #a0a0a0 30%,
+    #e8e8e8 60%,
+    #606060 100%
+  );
+
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --letter-spacing-heading: 0.08em;
+  --letter-spacing-wide: 0.12em;
+
+  --transition-default: all 0.3s ease;
+  --transition-slow: all 0.6s ease;
+
+  --section-padding: 120px 80px;
+  --section-padding-mobile: 80px 24px;
+
+  --navbar-height: 80px;
+  --z-navbar: 1000;
+  --z-overlay: 100;
+  --z-video: 0;
+}
+```
+
+---
+
+### CODING STANDARDS — ENFORCE THROUGHOUT
+
+**React**
+- Functional components only — no class components
+- Custom hooks for all reusable logic (scroll animations, drag scroll)
+- Props destructured cleanly at component top
+- No inline styles anywhere — CSS Modules only
+- No unused imports, no unused variables, no commented-out code
+- All components must be self-contained — styles scoped via CSS Modules
+- Use `useRef`, `useEffect`, `useState` correctly — no memory leaks, clean up all GSAP instances in `useEffect` return
+- Meaningful component and variable names — no `div1`, `temp`, `data2` etc
+
+**CSS Modules**
+- BEM-inspired class naming: `.navbar__link`, `.hero__title`, `.card__border` etc
+- No `!important` anywhere
+- Mobile-first media queries
+- Breakpoints consistent across all modules:
+  ```css
+  /* Mobile: default */
+  /* Tablet: @media (min-width: 768px) */
+  /* Desktop: @media (min-width: 1024px) */
+  /* Wide: @media (min-width: 1440px) */
+  ```
+
+**JavaScript**
+- ES6+ throughout — arrow functions, destructuring, template literals, optional chaining
+- Async/await for all async operations — no `.then()` chains
+- No `var` anywhere — `const` by default, `let` only when reassignment needed
+- Error boundaries on async operations
+
+**Constants File**
+- All site data lives in `src/constants/index.js` — gallery images, partner logos, services content, nav links
+- If content needs to change, developer only touches this one file
+
+```javascript
+// src/constants/index.js
+
+export const NAV_LINKS = [
+  { label: 'Work', href: '#work' },
+  { label: 'Films', href: '#films' },
+  { label: 'About', href: '#about' },
+  { label: 'Partners', href: '#partners' },
+  { label: 'Contact', href: '#contact' },
+];
+
+export const SERVICES = [
+  {
+    id: 1,
+    icon: 'SteeringWheel',
+    title: 'AUTOMOBILE PHOTOGRAPHY & FILM',
+    description: 'Ferraris, muscle cars, supercars — we make every machine look like it belongs on a poster.',
+    btsImage: '/assets/images/bts-1.jpg',
+  },
+  {
+    id: 2,
+    icon: 'Crosshair',
+    title: 'TACTICAL & FIREARMS PHOTOGRAPHY',
+    description: 'Precision. Power. We capture the craft behind every firearm with cinematic intensity.',
+    btsImage: '/assets/images/bts-2.jpg',
+  },
+  {
+    id: 3,
+    icon: 'Aperture',
+    title: 'COMMERCIAL & BRAND SHOOTS',
+    description: 'Product launches, brand campaigns, content creation — built for impact.',
+    btsImage: '/assets/images/bts-3.jpg',
+  },
+];
+
+export const GALLERY_IMAGES = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  src: `/assets/images/gallery-${i + 1}.jpg`,
+  category: i < 6 ? 'Automobile' : i < 8 ? 'Tactical' : 'Commercial',
+}));
+
+export const PARTNERS = Array.from({ length: 8 }, (_, i) => ({
+  id: i + 1,
+  src: `/assets/partners/partner-${i + 1}.png`,
+  alt: `Partner ${i + 1}`,
+}));
+
+export const FILMS = [
+  {
+    id: 1,
+    vimeoSrc: 'https://player.vimeo.com/video/1204904726?autoplay=1&muted=1&loop=1&background=1',
+    title: 'DESERT MACHINES',
+    description: "Karachi's finest automobiles, raw desert, cinematic fire.",
+    label: 'EXPERIENCE',
+  },
+  {
+    id: 2,
+    vimeoSrc: 'https://player.vimeo.com/video/1204904725?autoplay=1&muted=1&loop=1&background=1',
+    title: 'STEEL & SMOKE',
+    description: 'Tactical. Precise. Unfiltered.',
+    label: 'EXPLORE',
+  },
+];
+
+export const VIMEO_HERO = 'https://player.vimeo.com/video/1204904727?autoplay=1&muted=1&loop=1&background=1';
+
+export const CONTACT = {
+  whatsapp: 'https://wa.me/[PHONENUMBER]',
+  email: 'info@lowgradefilms.com',
+  instagram: 'https://www.instagram.com/lowgradefilms',
+  youtube: '[YOUTUBE LINK]',
+};
+
+export const BEHOLD_FEED_ID = 'CshoDpAzaLz8Unyr7NmE';
+```
+
+---
+
+### CUSTOM HOOKS
+
+**`useScrollAnimation.js`**
+```javascript
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const useScrollAnimation = (options = {}) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const animation = gsap.fromTo(
+      el,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: options.duration || 0.8,
+        ease: options.ease || 'power2.out',
+        delay: options.delay || 0,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+
+    return () => {
+      animation.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
+
+  return ref;
+};
+
+export default useScrollAnimation;
+```
+
+**`useDragScroll.js`**
+```javascript
+import { useRef, useEffect } from 'react';
+
+const useDragScroll = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const onMouseDown = (e) => {
+      isDown = true;
+      el.classList.add('dragging');
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    };
+
+    const onMouseLeave = () => {
+      isDown = false;
+      el.classList.remove('dragging');
+    };
+
+    const onMouseUp = () => {
+      isDown = false;
+      el.classList.remove('dragging');
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 2;
+      el.scrollLeft = scrollLeft - walk;
+    };
+
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('mouseup', onMouseUp);
+    el.addEventListener('mousemove', onMouseMove);
+
+    return () => {
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseleave', onMouseLeave);
+      el.removeEventListener('mouseup', onMouseUp);
+      el.removeEventListener('mousemove', onMouseMove);
+    };
+  }, []);
+
+  return ref;
+};
+
+export default useDragScroll;
+```
+
+---
+
+### BACKEND — NODE.JS EXPRESS SERVER
+
+`server/index.js`:
+```javascript
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import contactRouter from './routes/contact.js';
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+app.use('/api/contact', contactRouter);
+
+app.listen(PORT, () => {
+  console.log(`LGF Server running on port ${PORT}`);
+});
+```
+
+`server/routes/contact.js`:
+```javascript
+import express from 'express';
+
+const router = express.Router();
+
+router.post('/', async (req, res) => {
+  const { name, email, projectType, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Required fields missing' });
+  }
+
+  // TODO: Integrate email service (e.g. Nodemailer + Zoho SMTP)
+  console.log('New contact form submission:', { name, email, projectType, message });
+
+  res.status(200).json({ success: true, message: 'Message received' });
+});
+
+export default router;
+```
+
+---
+
+### WINDOWS COMPATIBILITY — CRITICAL
+
+- Use **Vite** as the build tool — works perfectly on Windows, no Linux dependencies
+- All file paths use forward slashes `/` in imports — Vite handles this on Windows
+- No shell scripts (`.sh` files) anywhere
+- `package.json` scripts must use cross-platform commands:
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+```
+- Use `cross-env` package for any environment variables in scripts
+- `.gitignore` must include `node_modules`, `.env`, `dist`, `.DS_Store`
+
+---
+
+### README.md — WRITE A CLEAN ONE
+
+```markdown
+# LOWGRADEFILMS
+
+Official website for LOWGRADEFILMS — a Karachi-based creative production house.
+
+## Tech Stack
+- React.js (Vite)
+- Node.js + Express
+- CSS Modules
+- GSAP + ScrollTrigger
+- Phosphor React Icons
+
+## Getting Started
+
+### Prerequisites
+- Node.js v18+
+- npm v9+
+
+### Installation
+
+# Install frontend dependencies
+cd client
+npm install
+
+# Install backend dependencies
+cd ../server
+npm install
+
+### Running Locally (Windows)
+
+# Start frontend (runs on http://localhost:5173)
+cd client
+npm run dev
+
+# Start backend in separate terminal (runs on http://localhost:5000)
+cd server
+npm run dev
+
+## Environment Variables
+Copy `.env.example` to `.env` and fill in values:
+```
+PORT=5000
+```
+
+## Project Structure
+All site content (images, text, links) is managed from:
+`client/src/constants/index.js`
+
+## Deployment
+- Frontend: Build with `npm run build` → deploy `dist/` folder to Hostinger
+- Backend: Deploy to any Node.js host (Railway, Render — both free tier available)
+```
+
+---
+
+### FINAL CHECKLIST BEFORE FINISHING
+
+- Zero console errors or warnings
+- Zero unused imports or variables
+- Every component has its own CSS Module — no global style leakage
+- All content pulled from `constants/index.js` — no hardcoded strings in components
+- Windows developer can clone repo, run `npm install` and `npm run dev` and site works immediately
+- A senior developer reviewing this code would find it clean, logical, and impressive
+- Push final code to `https://github.com/Muhammad-Ahmed04/Low-Grade-F`

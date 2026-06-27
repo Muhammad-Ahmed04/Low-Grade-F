@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0d0d0d;
+  --card-foreground: #ffffff;
+  --border: #333333;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --radius: 0px;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0d0d0d;
+  --card-foreground: #ffffff;
+  --border: #333333;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --radius: 0px;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    border-radius: 0 !important;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-chrome {
+    background: linear-gradient(to right, #C0C0C0, #E8E8E8, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-chrome {
+    background: linear-gradient(to right, #C0C0C0, #E8E8E8, #FFFFFF);
+  }
+
+  .border-chrome {
+    border-image: linear-gradient(to right, #C0C0C0, #E8E8E8, #FFFFFF) 1;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Films cards & panels */
+.films-card {
+  flex: 0 0 45vw;
+  width: 45vw;
+}
+
+.films-panel-box {
+  width: 100%;
+  height: 70vh;
+}
+
+@media (max-width: 767px) {
+  .films-card {
+    flex: 0 0 90vw;
+    width: 90vw;
+  }
+  .films-panel-box {
+    height: 45vh;
+  }
+}
+
+/* Vimeo iframe — covers its container like object-fit: cover */
+.vimeo-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Always fills whichever dimension is larger */
+  width: 177.78vh;   /* 16/9 × 100vh — wide enough when container is taller */
+  height: 56.25vw;   /* 9/16 × 100vw — tall enough when container is wider */
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
+/* GPU-accelerated video rendering — eliminates stutter */
+.video-gpu {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%       { transform: translateY(8px); opacity: 1; }
+}
+
+.arrow-bounce {
+  animation: bounce-arrow 1.8s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.partner-logo {
+  height: 48px;
+  width: auto;
+  min-width: 100px;
+  max-width: 160px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.partner-logo:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0px 0px 8px rgba(255,255,255,0.35));
+}
+
+@media (max-width: 768px) {
+  .partner-logo {
+    height: 36px;
+    min-width: 80px;
+  }
+  .marquee-track {
+    animation-duration: 45s;
+  }
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
+}

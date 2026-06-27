@@ -1,0 +1,67 @@
+Here's the full combined prompt:
+
+---
+
+**LGF WEBSITE — SERVICES ICONS + PARTNER LOGOS FIX**
+
+---
+
+### PART 1 — SERVICES SECTION ICON OVERHAUL
+
+The icons in the "WHAT WE DO" services section look generic and flat. Replace all 3 icons with custom inline SVGs that feel **3D, metallic, premium and cinematic** — matching the chrome LGF logo energy throughout the site.
+
+**ICON STYLE RULES (apply to ALL 3)**
+- No flat, outline, or emoji-style icons — these look cheap and childish
+- Every icon must use **SVG gradients** to simulate a chrome/metallic 3D finish:
+  - Define a `linearGradient` inside the SVG with stops: `#ffffff` → `#a0a0a0` → `#e8e8e8` → `#606060` — this creates the polished metal look
+  - Add a second darker gradient for shadow/depth areas: `#1a1a1a` → `#444444`
+  - Use `fill="url(#gradientName)"` on all shape elements
+- Each icon must have a subtle drop shadow via SVG `filter: drop-shadow(0px 4px 12px rgba(180,180,180,0.3))`
+- Icon size: `80px × 80px` minimum, centered above the card title
+- On hover (matching the card hover): icon brightens — `filter: drop-shadow(0px 4px 20px rgba(220,220,220,0.6))`
+
+**THE 3 ICONS — BUILD FROM SCRATCH AS INLINE SVGs**
+
+Card 1 — AUTOMOBILE
+- A sleek side-profile of a supercar/sports car
+- Sharp angular body lines, low stance, visible wheel arches and rims
+- Car body filled with chrome metallic gradient
+- Rims as concentric circles with their own gradient (darker center, lighter edge)
+- Should look like a Porsche or Ferrari silhouette — aggressive and low, NOT a generic car blob
+
+Card 2 — TACTICAL & FIREARMS
+- A precision tactical rifle / sniper in side profile
+- Long barrel, scope on top, stock detail visible
+- Barrel filled with dark-to-light metallic gradient (darker = more dramatic)
+- Scope as a separate cylinder shape with its own gradient highlight
+- Should feel military-grade, heavy, cinematic — not a cartoon gun
+
+Card 3 — COMMERCIAL & BRAND
+- A professional cinema/DSLR camera body with a large lens
+- Lens as a perfect circle with concentric ring gradients (like real glass — dark outer ring, bright center highlight)
+- Camera body blocky and solid with metallic gradient
+- Lens hood or barrel extending forward for depth
+- Should feel like an ARRI or RED camera — serious filmmaking equipment, not a point-and-shoot
+
+**AFTER BUILDING THE ICONS**
+- All 3 icons must look cohesive with the same metallic gradient language
+- They should feel like they belong on the same car as the LGF chrome logo
+- Test hover states on all 3 cards — lift + glow must work together with the new icons
+- Icons must scale correctly on mobile without pixelating (SVG = always crisp)
+
+---
+
+### PART 2 — PARTNER LOGOS FIX (SURGICAL — TOUCH NOTHING ELSE)
+
+The partner logos in the "TRUSTED BY" section were looking great before — bring that exact styling back. The issue is only that some logos (like Porsche) are showing as blank/empty boxes because the image content inside is invisible.
+
+**Do NOT change the overall logo styling, color treatment, marquee speed, sizing, or borders — just fix the visibility:**
+
+- Some logos have dark or black content on transparent backgrounds — the current CSS filter is making them invisible
+- For each logo, check what the actual image contains and apply the correct filter:
+  - If the logo is light/white already → no filter needed, just `opacity: 0.8`
+  - If the logo has dark/black content on transparent bg → use `filter: invert(1)` to flip it white
+  - If the logo is colored → use `filter: brightness(0) invert(1)` to make it white/silver
+- The goal: **every single logo must be clearly visible** in white/silver monochrome, matching the existing style of the logos that were already working
+- Hover state: `opacity: 1` + slight brightness boost
+- Do NOT redesign, recolor, or restyle anything else in this section

@@ -1,0 +1,170 @@
+Here's the cleaned-up version:
+
+---
+
+**REPLIT PROMPT: Low Grade Films (LGF) Website**
+
+---
+
+Build a single-page, fully responsive website for **Low Grade Films (LGF)** — a premium videography and photography company specializing in automobile, tactical/guns, and commercial brand content. The site should feel like a high-end automotive brand meets a cinematic production house.
+
+---
+
+### TECH STACK
+- HTML, CSS, Vanilla JS (no frameworks needed)
+- GSAP for scroll animations (load from CDN)
+- Google Fonts
+
+---
+
+### BRAND & VISUAL IDENTITY
+
+**Colors:**
+- Background: `#000000` (pure black)
+- Primary text: `#FFFFFF`
+- Accent / Chrome Silver: `#C0C0C0` to `#E8E8E8` gradient (metallic, like a polished car badge)
+- Gradient usage: Silver-to-white gradients on headings, borders, and CTA buttons. Think chrome car emblem, not flat grey.
+
+**Typography:**
+- Headings: `Bebas Neue` or `Barlow Condensed` — bold, wide, uppercase
+- Body: `Inter` or `DM Sans` — clean, modern
+- Letter-spacing on headings: generous (0.08–0.12em)
+
+**Logo:**
+- Display the LGF logo (user will provide image file: `lgf-logo.png`) in the navbar and hero. The logo is 3D chrome metallic lettering on black — respect that aesthetic throughout.
+
+**Overall vibe references:**
+- ciridae.com — dark, editorial, full-bleed imagery
+- nayapay.com/business — bold gradients, 3D elements, confident layout
+- basicagency.com — typographic punch, cinematic white space
+- dayy.com — smooth scroll, premium feel
+
+---
+
+### SECTIONS (in order)
+
+---
+
+#### 1. NAVBAR
+- Fixed, transparent on load → becomes solid black with a subtle silver bottom border on scroll
+- Left: LGF logo (image)
+- Right: nav links — About, Services, Work, Partners, Contact
+- On mobile: hamburger menu with full-screen black overlay
+- Smooth scroll to sections on click
+
+---
+
+#### 2. HERO SECTION
+- Full viewport height (`100vh`)
+- **Left side:** Large bold headline text (2 lines):
+  - Line 1: `"WE SHOOT"` — massive, white
+  - Line 2: `"WHAT OTHERS CAN'T."` — same size, silver chrome gradient
+- Subtext below: `"Automobile. Tactical. Commercial. — Karachi, Pakistan"`
+- A single CTA button: `"See Our Work"` → smooth scroll to portfolio. Style: silver gradient border, black fill, white text, hover fills with silver gradient
+- **Right side:** A full-height, full-bleed hero car photograph (user will swap in: placeholder a dark moody sports car shot). Add a subtle right-to-left dark vignette gradient so text stays readable.
+- Subtle fade-up animation on text load (GSAP)
+
+---
+
+#### 3. ABOUT LGF
+- Black background
+- Left: A vertical silver chrome line accent, then bold heading: `"LOW GRADE FILMS"` with a paragraph below explaining they are a Karachi-based creative production house, experts in making machines, metal, and firepower look extraordinary on camera. Keep copy punchy and confident — 3–4 sentences max.
+- Right: A moody BTS photo or a second car detail shot (placeholder image slot)
+- Fade-in on scroll (GSAP ScrollTrigger)
+
+---
+
+#### 4. SERVICES
+- Black background
+- Section heading: `"WHAT WE DO"` — chrome gradient, centered, large
+- 3 service cards in a row (stack on mobile):
+
+  **Card 1 — Automobile**
+  - Icon: a stylized car silhouette (SVG or emoji-free Unicode symbol)
+  - Title: `AUTOMOBILE PHOTOGRAPHY & FILM`
+  - Desc: "Ferraris, muscle cars, supercars — we make every machine look like it belongs on a poster."
+
+  **Card 2 — Guns & Tactical**
+  - Icon: crosshair / scope SVG
+  - Title: `TACTICAL & FIREARMS PHOTOGRAPHY`
+  - Desc: "Precision. Power. We capture the craft behind every firearm with cinematic intensity."
+
+  **Card 3 — Commercial**
+  - Icon: camera / lens SVG
+  - Title: `COMMERCIAL & BRAND SHOOTS`
+  - Desc: "Product launches, brand campaigns, content creation — built for impact."
+
+- Card style: dark charcoal `#0D0D0D` background, silver gradient top border, subtle hover lift (translateY -6px, silver glow)
+- Staggered fade-in on scroll
+
+---
+
+#### 5. PORTFOLIO / GALLERY — HORIZONTAL CINEMATIC STRIP
+- Section heading: `"THE WORK"` — left-aligned, massive, chrome gradient
+- A horizontally scrollable strip of photos that the user drags/scrolls through
+- Cards are tall and narrow (roughly 320px × 480px), slight gap between them
+- On hover: scale up slightly (1.04), overlay fades in with the photo name/category in silver text
+- Photos: user will provide from their Google Drive shoot. Use 8–10 placeholder `<img>` slots with `object-fit: cover`
+- Implement mouse-drag scroll (JS: `mousedown` + `mousemove` drag behavior) AND touch scroll
+- Scroll-triggered fade-in for the section heading; strip itself is drag-scrollable
+
+---
+
+#### 6. PARTNER LOGOS
+- Section heading: `"TRUSTED BY"` — centered, silver gradient
+- A horizontally auto-scrolling logo ticker (CSS infinite marquee animation, no JS needed)
+- Logos displayed in white/silver monochrome (use CSS `filter: brightness(0) invert(1)` so any colored logos become white)
+- User will provide logo image files. Create 6–8 `<img>` placeholder slots
+- Background: pure black, very subtle silver top and bottom 1px border lines on the ticker row
+
+---
+
+#### 7. CONTACT / BOOK US
+- Section heading: `"LET'S CREATE SOMETHING."` — chrome gradient, centered
+- Subheading: `"Drop us a message or hit us on WhatsApp — we respond fast."`
+- **Left side:** A contact form with fields: Name, Email, Project Type (dropdown: Automobile / Tactical / Commercial / Other), Message. Submit button: silver gradient border, black fill, hover fills silver.
+- **Right side:** A large fancy WhatsApp CTA block — dark card (`#0D0D0D`), green WhatsApp icon, bold text: `"Prefer to chat?"`, subtext: `"Message us directly on WhatsApp"`, and a styled button: `"Open WhatsApp"` linking to `https://wa.me/[PHONENUMBER]` (user replaces number). Add a subtle pulsing green glow animation on the button.
+- Also include: a line with the email address (placeholder: `hello@lowgradefilms.com`)
+- Fade-in on scroll
+
+---
+
+#### 8. FOOTER
+- Minimal: LGF logo left, copyright center: `© 2025 Low Grade Films. All rights reserved.`
+- Right: Instagram + YouTube icon links (SVG icons)
+- 1px silver top border
+
+---
+
+### ANIMATIONS (GSAP + ScrollTrigger)
+- All sections: `opacity: 0 → 1`, `y: 40 → 0`, `duration: 0.8`, `ease: power2.out` on scroll enter
+- Hero text: staggered fade-up on page load
+- Service cards: staggered (0.15s between each)
+- No jarring effects — smooth, premium, cinematic
+
+---
+
+### MOBILE RESPONSIVENESS
+- Full mobile-first responsive design
+- Hamburger nav on mobile
+- Services stack vertically
+- Hero becomes full-bleed image background with text overlay on mobile
+- Horizontal gallery remains swipeable (touch scroll)
+
+---
+
+### FILE PLACEHOLDERS TO SWAP
+The user will provide these files — create clearly labeled placeholder slots:
+- `lgf-logo.png` — navbar + hero logo
+- `hero-car.jpg` — hero right-side image
+- `about-photo.jpg` — about section image
+- `gallery-1.jpg` through `gallery-10.jpg` — portfolio strip
+- `partner-1.png` through `partner-8.png` — logo ticker
+
+---
+
+### NOTES
+- No stock-looking design. Every choice should feel like it belongs in a car commercial.
+- Avoid flat greys — the silver must always feel metallic, gradient, dimensional.
+- No rounded corners on cards — keep edges sharp and automotive.
+- Whitespace is intentional. Don't crowd the layout.

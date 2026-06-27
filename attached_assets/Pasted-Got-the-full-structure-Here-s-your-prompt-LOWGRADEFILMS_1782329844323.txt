@@ -1,0 +1,209 @@
+Got the full structure. Here's your prompt:
+
+---
+
+**LOWGRADEFILMS — COMPLETE LAYOUT REDESIGN INSPIRED BY THE-LOWDOWN.COM**
+
+Redesign the entire LOWGRADEFILMS website with a new layout and flow inspired by `the-lowdown.com`. Keep all existing LOWGRADEFILMS branding — black background, chrome silver gradients, Bebas Neue typography, LGF logo — but adopt the-lowdown's cinematic, editorial, full-screen scrolling layout structure.
+
+---
+
+### OVERALL LAYOUT PHILOSOPHY
+- Full-width, full-bleed sections — no boxed containers
+- Each section takes up significant viewport height — generous, cinematic breathing room
+- Content reveals section by section as you scroll — immersive, not cluttered
+- No sidebars, no busy layouts — one strong focal point per section
+- Sharp edges, no rounded corners anywhere
+
+---
+
+### SECTION ORDER & STRUCTURE
+
+---
+
+#### 1. NAVBAR
+- Minimal, fixed, transparent — becomes solid black with 1px silver bottom border on scroll
+- Left: LOWGRADEFILMS logo (`lgf-logo.png`)
+- Right: text links — Work, Films, About, Partners, Contact
+- Mobile: hamburger → full-screen black overlay with links centered, large
+- `z-index: 1000`
+
+---
+
+You're right — on the-lowdown.com the videos in both the hero and short films section just **play silently in the background**, no click interaction, no lightbox, no play button. They're purely ambient and cinematic. The titles and labels just sit on top as text overlays. Very minimal, very premium.
+
+Here are the two replacement sections — swap these into the prompt in place of sections 2 and 3:
+
+---
+
+#### 2. HERO — FULLSCREEN AMBIENT VIDEO (NO INTERACTION)
+- Full viewport `100vh`
+- Background: `hero-video.mp4` — autoplay, muted, looped, `object-fit: cover`, `pointer-events: none`
+- Dark overlay: `rgba(0,0,0,0.45)`
+- Centered overlay content:
+  - `lgf-logo.png` large and centered
+  - Tagline below: `"AUTOMOBILE. TACTICAL. COMMERCIAL."` — Bebas Neue, silver chrome gradient, generous letter-spacing
+- **No buttons, no click events, no play/pause — video just runs silently in the background**
+- Subtle animated down-arrow at bottom center (CSS bounce animation only)
+- Mobile: video plays muted fullscreen cover, `pointer-events: none`
+
+---
+
+#### 3. SHORT FILMS — AMBIENT VIDEO PANELS (NO INTERACTION)
+- Section heading: `"FILMS"` — left-aligned, massive, chrome gradient, Bebas Neue
+- Two full-width video panels side by side (stack vertically on mobile), each `50vh` tall
+- Each panel: `film-1.mp4` and `film-2.mp4` — autoplay, muted, looped, `object-fit: cover`, `pointer-events: none`
+- **No play button, no lightbox, no click events whatsoever — videos just play silently like moving posters**
+- Bottom of each panel: dark gradient fade up from bottom `linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 60%)` so text sits cleanly
+- Text overlay at bottom of each panel:
+  - Film title in large Bebas Neue, white
+  - One-line descriptor in Inter, silver, smaller
+  - Film 1: `"DESERT MACHINES"` / `"Karachi's finest automobiles, raw desert, cinematic fire."`
+  - Film 2: `"STEEL & SMOKE"` / `"Tactical. Precise. Unfiltered."`
+- Mobile: panels stack vertically, each `40vh`
+
+
+---
+
+#### 4. THE WORK — HORIZONTAL CINEMATIC GALLERY
+- Section heading: `"THE WORK"` — left-aligned, massive, chrome gradient
+- Horizontally drag-scrollable photo strip
+- Tall narrow cards (`320px × 480px`), no gaps visible between — edge to edge feel
+- On hover: scale `1.04`, silver category label fades in
+- Mouse drag + touch swipe both work
+- Placeholder image slots: `gallery-1.jpg` through `gallery-10.jpg`
+
+---
+
+#### 5. ABOUT — WITH GUN BARREL BREAKOUT
+- Full-width section, black background
+- Left: vertical silver line accent + heading `"LOWGRADEFILMS"` + punchy copy:
+*"A Karachi-based creative production house built for the bold. We specialize in making machines, metal, and firepower look extraordinary on camera. From supercar shoots in the desert to tactical firearms content — we don't just document. We craft cinema."*
+- Right: gun/firearm photo with barrel pointing LEFT, breaking out of its image container into the text area (`overflow: visible`, `transform: translateX(-60px)`) with a subtle depth shadow
+- Mobile: breakout effect OFF, image stacks below text
+
+---
+
+#### 6. SERVICES — BTS PHOTO CARDS
+- Section heading: `"WHAT WE DO"` — chrome gradient, centered
+- 3 full-bleed cards side by side (stack on mobile):
+  - Each card has a BTS photo as background (`bts-1.jpg`, `bts-2.jpg`, `bts-3.jpg`)
+  - Dark gradient overlay: `linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%)`
+  - Phosphor icon (chrome gradient styled) + card title + one-line description
+  - Silver gradient top border
+  - On hover: overlay lightens, card lifts `translateY -6px`, silver glow
+  - Card 1: Steering wheel icon — `AUTOMOBILE PHOTOGRAPHY & FILM`
+  - Card 2: Crosshair icon — `TACTICAL & FIREARMS PHOTOGRAPHY`
+  - Card 3: Aperture icon — `COMMERCIAL & BRAND SHOOTS`
+
+---
+
+#### 7. BEHIND THE LENS
+- Section heading: `"BEHIND THE LENS"` — chrome gradient, centered
+- Subheading: `"The craft behind every frame."`
+- Asymmetric grid: 1 large image left (portrait), 2 stacked images right (landscape)
+- On hover: silver border appears + caption fades in
+  - `bts-1.jpg` → `"On location — Desert Shoot"`
+  - `bts-2.jpg` → `"Automobile Showroom, Karachi"`
+  - `bts-3.jpg` → `"Behind the frame"`
+- Images bleed edge to edge within grid cell — no card borders by default
+
+---
+
+#### 8. COMMUNITY — INSTAGRAM FEED
+- Section heading: `"COMMUNITY"` — chrome gradient, centered, Bebas Neue
+- Subheading: `"@lowgradefilms"` — clickable, links to `https://www.instagram.com/lowgradefilms`
+- Embed the following Behold.so Instagram widget exactly as written below — do not modify the embed code:
+
+```html
+<behold-widget feed-id="CshoDpAzaLz8Unyr7NmE"></behold-widget>
+<script>
+  (() => {
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";d.head.append(s);
+  })();
+</script>
+```
+
+- Wrap the embed in a div: `<div class="behold-wrapper">` — centered, full width up to `1200px` max, `width: 100%`, no horizontal overflow
+- Do not apply any CSS that could conflict with the Behold widget's internal layout
+- Below the widget: `"FOLLOW US"` button linking to `https://www.instagram.com/lowgradefilms` — silver gradient border, black fill, white text, hover fills silver
+- Mobile: Behold handles its own responsive layout, wrapper just needs `width: 100%`
+
+---
+
+#### 9. TRUSTED BY — PARTNER LOGOS
+- Section heading: `"TRUSTED BY"` — centered, silver gradient
+- Smooth infinite CSS marquee ticker — `will-change: transform`, `animation: linear infinite`
+- Duplicate logo set for seamless loop
+- Logo height: `48px` desktop, `36px` mobile, `width: auto`
+- Gap between logos: `60px`
+- Per-logo filter correction:
+  - Light logo → `opacity: 0.85`
+  - Dark logo on transparent → `filter: invert(1)`, `opacity: 0.85`
+  - Colored logo → `filter: brightness(0) invert(1)`, `opacity: 0.85`
+- Hover: `opacity: 1` + `drop-shadow(0px 0px 8px rgba(255,255,255,0.3))` + pause marquee
+- Silver 1px top and bottom border on ticker row
+- Placeholder slots: `partner-1.png` through `partner-8.png`
+
+---
+
+#### 10. CONTACT
+- Section heading: `"LET'S CREATE SOMETHING."` — chrome gradient, centered
+- Subheading: `"Drop us a message or hit us on WhatsApp — we respond fast."`
+- Left: contact form — Name, Email, Project Type dropdown (Automobile / Tactical / Commercial / Other), Message. Silver border inputs, submit button silver gradient
+- Right: WhatsApp card (`#0D0D0D`) — bold `"Prefer to chat?"`, `"Open WhatsApp"` button with pulsing green glow, links to `https://wa.me/[PHONENUMBER]`
+- Email: `hello@lowgradefilms.com`
+
+---
+
+#### 11. FOOTER
+- LOWGRADEFILMS logo left
+- `© 2025 LOWGRADEFILMS. All rights reserved.` center
+- Instagram + YouTube SVG icons right
+- 1px silver top border
+
+---
+
+### ANIMATIONS (GSAP + ScrollTrigger)
+- All sections: `opacity: 0 → 1`, `y: 40 → 0`, `duration: 0.8`, `ease: power2.out`
+- Hero text: staggered fade-up on load
+- Service cards: staggered 0.15s
+- No jarring effects — smooth, cinematic
+
+---
+
+### MOBILE RESPONSIVENESS
+- Every section fully responsive at 375px
+- Hero video plays muted, fullscreen cover on mobile
+- Films: stack vertically on mobile
+- Services: stack vertically
+- Gallery: touch swipe
+- Community grid: 2 columns on mobile
+- No horizontal overflow — `overflow-x: hidden` on body
+- All tap targets minimum 44px
+
+---
+
+### FILES TO USE
+- `lgf-logo.png` — logo (navbar + hero + footer)
+- `hero-video.mp4` — hero background video
+- `film-1.mp4` — first short film
+- `film-2.mp4` — second short film
+- `about-photo.jpg` — gun barrel breakout image
+- `gallery-1.jpg` through `gallery-10.jpg` — portfolio strip
+- `bts-1.jpg`, `bts-2.jpg`, `bts-3.jpg` — services card backgrounds + behind the lens
+- `partner-1.png` through `partner-8.png` — partner logo ticker
+
+---
+
+### FINAL CHECK
+After building, scroll through the entire site on both desktop and mobile and confirm:
+- Zero broken images or videos
+- Zero layout breaks or text overflow
+- All animations triggering correctly
+- All links and buttons functional
+- Behold Instagram widget loading correctly
+- Marquee scrolling smoothly
+- Gun barrel breakout effect working on desktop
+- Site looks premium, cinematic, and sharp at all screen sizes

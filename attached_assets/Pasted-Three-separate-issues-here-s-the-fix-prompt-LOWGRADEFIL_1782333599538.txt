@@ -1,0 +1,110 @@
+Three separate issues — here's the fix prompt:
+
+---
+
+**LOWGRADEFILMS — VIDEO PERFORMANCE & FILMS SECTION FIX**
+
+---
+
+### 🔴 ISSUE 1 — VIDEO LOADING TOO SLOW
+
+All videos (`hero-video.mp4`, `film-1.mp4`, `film-2.mp4`) are loading slowly. Fix with the following optimizations:
+
+**HTML video tag attributes — add ALL of these to every `<video>` element:**
+```html
+<video 
+  autoplay 
+  muted 
+  loop 
+  playsinline 
+  preload="auto"
+  disablepictureinpicture
+  disableremoteplayback
+>
+```
+
+- Add `preload="auto"` — tells the browser to start loading the video immediately
+- Add `playsinline` — critical for iOS Safari, without this videos won't autoplay on iPhone
+- For the hero video specifically: add `fetchpriority="high"` attribute so the browser prioritises it above everything else
+- For film-1 and film-2: add `preload="auto"` but NOT `fetchpriority="high"` — load hero first, films second
+- Ensure all video files are being served directly from the Replit project root — no subdirectory path issues
+- Add this CSS to every video element:
+```css
+video {
+  will-change: transform;
+  transform: translateZ(0);
+}
+```
+This forces GPU acceleration on video rendering — eliminates stuttering
+
+---
+
+### 🔴 ISSUE 2 — FILMS SECTION PROPORTIONS (MATCH THE-LOWDOWN EXACTLY)
+
+Currently the film panels are the wrong proportions. Rebuild the films section to exactly match the-lowdown.com layout:
+
+**Layout:**
+- Two video panels sitting **side by side**, equal width (`50% each`), with **zero gap between them** — edge to edge, seamless
+- Each panel height: exactly `100vh` — full viewport height, not `50vh`
+- So the two films sit side by side and together fill the entire screen — you have to scroll past both as one full-screen section
+- `object-fit: cover` on both videos so they fill their panel completely with no black bars
+- Section heading `"FILMS"` sits **above** both panels, full width, left-aligned, Bebas Neue, chrome gradient
+
+**Text overlay on each panel:**
+- Position: bottom left, inside each panel
+- Dark gradient from bottom: `linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 50%)`
+- Film title: Bebas Neue, `32px`, white, uppercase, tight letter-spacing
+- One-line descriptor: Inter, `13px`, `#999999` silver-grey, below the title
+- Small label above the title in tiny caps: `"FILM 01"` and `"FILM 02"` in silver, `11px`, `2px` letter-spacing
+- Layout of text stack (bottom to top): descriptor → title → label
+
+**No interaction whatsoever:**
+- `pointer-events: none` on both videos
+- No play button, no hover effect, no lightbox, no cursor change
+- Videos just play silently as ambient moving posters
+
+**Mobile — CRITICAL FIX:**
+- On mobile (`< 768px`): stack panels **vertically**, each `100vw` wide and `50vh` tall
+- Videos MUST autoplay on mobile — add `playsinline` and `muted` attributes (both required for iOS autoplay)
+- If video fails to load on mobile, show the first frame as a poster image — add `poster="film-1-poster.jpg"` and `poster="film-2-poster.jpg"` attributes (extract first frame from each video as a JPG and save as these filenames)
+- Test on both iOS Safari and Android Chrome
+
+---
+
+### 🔴 ISSUE 3 — VIDEOS NOT LOADING ON MOBILE AT ALL
+
+This is almost certainly caused by missing `playsinline` and `muted` attributes. iOS Safari **refuses** to autoplay any video that doesn't have both. Fix:
+
+- Every single `<video>` tag across the entire site must have: `autoplay muted loop playsinline`
+- Double-check the hero video tag has all four attributes
+- Double-check both film video tags have all four attributes
+- Additionally — on mobile, large video files may timeout before loading. Add this JS fallback for each video:
+
+```javascript
+document.querySelectorAll('video').forEach(video => {
+  video.play().catch(() => {
+    // If autoplay fails, show poster frame
+    video.load();
+  });
+});
+```
+
+- If videos are still not loading on mobile after these fixes, it means the file sizes are too large for mobile bandwidth. In that case: create compressed mobile versions of each video at `720p` and serve them using the HTML `<source>` tag with media queries:
+
+```html
+<video autoplay muted loop playsinline preload="auto">
+  <source src="hero-video-mobile.mp4" media="(max-width: 768px)" type="video/mp4">
+  <source src="hero-video.mp4" type="video/mp4">
+</video>
+```
+
+Do this for all 3 videos — hero, film-1, film-2.
+
+---
+
+### ✅ FINAL CHECK
+- Hero video loads within 3 seconds on a standard mobile connection
+- Film panels are side by side, full viewport height, zero gap on desktop
+- Film panels stack vertically on mobile, each playing correctly
+- All videos autoplay silently on both iOS Safari and Android Chrome
+- No black boxes or broken video elements anywhere

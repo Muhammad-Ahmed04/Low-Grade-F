@@ -1,0 +1,106 @@
+Here's your prompt:
+
+---
+
+**LOWGRADEFILMS — FULL BUG FIX + GITHUB PUSH**
+
+---
+
+### PART 1 — FULL CODE AUDIT & BUG FIX
+
+Go through the **entire codebase** file by file and fix every bug, error, and issue you find:
+
+**HTML**
+- Validate all HTML structure — no unclosed tags, no missing attributes
+- All `<img>` tags must have `src`, `alt`, and correct file paths
+- All `<video>` tags must have `autoplay muted loop playsinline` attributes
+- All Vimeo iframes must have correct `src` URLs with `background=1` parameter
+- All internal links and anchor IDs must match — no broken smooth scroll targets
+- Check `<head>` for duplicate scripts — especially Vimeo player API and Phosphor Icons — load each only once
+- Meta title and description must say LOWGRADEFILMS correctly
+
+**CSS**
+- Check for any conflicting styles causing layout breaks
+- Confirm `overflow-x: hidden` is on body
+- Confirm no section is bleeding into another
+- Confirm all z-index values are logical — navbar at 1000, overlays below, videos at bottom
+- Check all media queries are correct and not conflicting
+- Confirm no red, orange, blue or any off-brand colors remain anywhere
+- Confirm chrome silver gradient is consistently defined and reused
+
+**JavaScript**
+- Check GSAP ScrollTrigger is loading correctly from CDN and all animations are initializing
+- Check horizontal gallery drag scroll — mousedown, mousemove, mouseup all working
+- Check hamburger menu open/close toggle working correctly
+- Check navbar scroll behavior — transparent to solid black transition working
+- Check smooth scroll on all nav links
+- Fix any console errors — open browser console and resolve every error shown
+
+**Vimeo Videos**
+- Confirm all 3 Vimeo iframes have `background=1` in their src URL
+- Confirm hero video wrapper covers full viewport with no gaps
+- Confirm film panels are side by side on desktop, stacked on mobile
+- Confirm `pointer-events: none` on all video wrappers
+
+**Mobile**
+- Check every section at 375px — no overflow, no broken layouts
+- Confirm hamburger menu works on mobile
+- Confirm gallery is touch swipeable
+- Confirm Behold Instagram widget is responsive
+- Confirm all tap targets are minimum 44px
+
+---
+
+### PART 2 — FIX GITHUB PUSH ERROR & PUSH CODE
+
+The connected GitHub repository is:
+`https://github.com/Muhammad-Ahmed04/Low-Grade-F`
+
+There is currently a fatal Git error preventing push. Fix it using the following steps in the Replit Shell:
+
+**Step 1 — Check Git status and reset any conflicts:**
+```bash
+git status
+git fetch origin
+```
+
+**Step 2 — If there are uncommitted changes, stage and commit everything:**
+```bash
+git add -A
+git commit -m "Full site build - LOWGRADEFILMS"
+```
+
+**Step 3 — If push is being rejected due to diverged history, force resolve:**
+```bash
+git pull origin main --allow-unrelated-histories
+git add -A
+git commit -m "Merge and resolve"
+```
+
+**Step 4 — Push to GitHub:**
+```bash
+git push origin main
+```
+
+**Step 5 — If the above still fails, try:**
+```bash
+git push origin main --force
+```
+
+**Step 6 — Confirm push was successful:**
+```bash
+git log --oneline -5
+```
+The last 5 commits should show in terminal confirming the push worked.
+
+**Step 7 — If remote branch is `master` instead of `main`:**
+```bash
+git push origin master --force
+```
+
+---
+
+### AFTER BOTH PARTS COMPLETE
+- Confirm zero console errors on the live site
+- Confirm GitHub repo at `https://github.com/Muhammad-Ahmed04/Low-Grade-F` shows the latest commit with today's date
+- Report back any files that couldn't be pushed or any errors that couldn't be resolved

@@ -1,0 +1,88 @@
+import { useRef, useEffect } from "react";
+import { gsap } from "@/lib/gsap";
+import { BEHOLD_FEED_ID, CONTACT } from "@/constants";
+
+export default function Community() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Load Behold widget script once
+  useEffect(() => {
+    const d = document;
+    if (d.querySelector('script[src="https://w.behold.so/widget.js"]')) return;
+    const s = d.createElement("script");
+    s.type = "module";
+    s.src = "https://w.behold.so/widget.js";
+    d.head.append(s);
+  }, []);
+
+  // GSAP scroll reveal
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".community-anim",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section id="community" ref={sectionRef} className="py-24 md:py-32 bg-black border-t border-[#111]">
+      <div className="container mx-auto px-6 lg:px-16">
+        {/* Heading */}
+        <div className="text-center mb-6 community-anim">
+          <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome mb-4">
+            COMMUNITY
+          </h2>
+          <a
+            href={CONTACT.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-400 hover:text-white transition-colors tracking-widest uppercase text-sm font-medium"
+          >
+            @lowgradefilms
+          </a>
+        </div>
+
+        {/* Behold widget */}
+        <div
+          className="community-anim"
+          style={{ maxWidth: 1200, width: "100%", margin: "0 auto 48px" }}
+          dangerouslySetInnerHTML={{
+            __html: `<behold-widget feed-id="${BEHOLD_FEED_ID}"></behold-widget>`,
+          }}
+        />
+
+        {/* Follow Us button */}
+        <div className="flex justify-center community-anim">
+          <a
+            href={CONTACT.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative inline-flex items-center justify-center px-12 py-4 uppercase tracking-widest text-sm font-medium text-white transition-all duration-300 overflow-hidden"
+            style={{ border: "1.5px solid rgba(192,192,192,0.5)", minHeight: 52 }}
+          >
+            <span
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: "linear-gradient(135deg, #C0C0C0, #E8E8E8, #A8A8A8)" }}
+            />
+            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+              FOLLOW US
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

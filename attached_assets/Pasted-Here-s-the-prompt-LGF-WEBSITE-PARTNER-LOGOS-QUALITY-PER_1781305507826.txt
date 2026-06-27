@@ -1,0 +1,64 @@
+Here's the prompt:
+
+---
+
+**LGF WEBSITE — PARTNER LOGOS QUALITY & PERFORMANCE OVERHAUL**
+
+Go through the entire "TRUSTED BY" partners section and do a complete quality audit and fix:
+
+---
+
+### IMAGE QUALITY
+- Every partner logo must be rendered as a crisp, high-quality image at all sizes — no blurring, pixelation, or stretching
+- All logo `<img>` tags must have `width` and `height` attributes set correctly
+- Add `image-rendering: -webkit-optimize-contrast` and `image-rendering: crisp-edges` to all logo images
+- If any logos are low-res or blurry, replace their `<img>` with an `<svg>` version if possible — SVGs are infinitely scalable and will always look sharp on any zoom level
+- Set `loading="eager"` on all partner logo images so they never flash or lazy-load awkwardly
+
+---
+
+### SIZING & LAYOUT
+- All logos must be uniform height (`48px` desktop, `36px` mobile) with `width: auto` so proportions are never distorted
+- Minimum logo container width: `120px` so no logo looks cramped
+- Generous spacing between logos — `gap: 60px` minimum — so the ticker never feels cluttered
+- Logos must never overlap each other at any screen size or zoom level
+
+---
+
+### VISIBILITY & POLISH
+- Every logo must be clearly visible — apply the correct filter per logo:
+  - Light/white logo on transparent bg → `opacity: 0.85`, no filter
+  - Dark/black logo on transparent bg → `filter: invert(1)`, `opacity: 0.85`
+  - Colored logo → `filter: brightness(0) invert(1)`, `opacity: 0.85`
+- Hover state on each logo: `opacity: 1` + `filter: drop-shadow(0px 0px 8px rgba(255,255,255,0.3))` — subtle premium glow
+- Transition: `all 0.3s ease` for smooth hover
+
+---
+
+### MARQUEE PERFORMANCE
+- The auto-scrolling ticker must run at a **smooth, consistent speed** with zero stuttering or jumping
+- Use pure CSS `@keyframes` animation — no JavaScript scroll logic
+- Duplicate the logo set at least once inside the marquee container so the loop is truly seamless with no gap or flash at the reset point
+- Animation: `linear` easing, infinite loop, no pause between cycles
+- `will-change: transform` on the marquee track for GPU acceleration — butter smooth on all devices
+- Pause animation on hover: `animation-play-state: paused` — lets users inspect a specific logo
+- On mobile: same marquee works, just slightly slower speed for readability
+
+---
+
+### MOBILE & ZOOM
+- At any zoom level (up to 3x) logos must remain sharp and readable — use SVGs wherever possible
+- On pinch-zoom on mobile, no logos should disappear, overflow, or get clipped
+- The marquee container must have `overflow: hidden` with no visible scrollbar at any zoom level
+- Test at 375px, 768px, and 1440px widths and confirm everything looks premium at all three
+
+---
+
+### FINAL CHECK
+Scroll through the partners section on both desktop and mobile and confirm:
+- Every logo is visible, sharp, and correctly styled
+- Marquee scrolls smoothly with zero jumps
+- Hover pause works
+- Zero pixelation at any zoom level
+
+---

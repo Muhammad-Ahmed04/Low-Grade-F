@@ -1,0 +1,62 @@
+Got it — now I can see exactly what the-lowdown is doing. Here's the precise prompt:
+
+---
+
+**LOWGRADEFILMS — SHORT FILMS SECTION REDESIGN (COPY THE-LOWDOWN LAYOUT EXACTLY)**
+
+Rebuild the Short Films section to exactly match this layout:
+
+---
+
+### LAYOUT & PROPORTIONS
+
+- Section heading: `"SHORT FILMS"` — centered, Bebas Neue, white, large, above the panels
+- Two video panels side by side with a visible gap between them (`24px`)
+- Each panel: approximately `45vw` wide, `70vh` tall
+- The two panels together are centered on the page — they do NOT stretch edge to edge, there is black space on the left and right outside both panels
+- **Rounded corners on the video panels: `12px` border-radius** — this is intentional, copy it exactly
+- `object-fit: cover` on both videos so they fill their panel with no black bars
+- Black background behind and between panels
+
+---
+
+### VIDEO BEHAVIOUR
+- Both videos: `autoplay muted loop playsinline preload="auto" pointer-events: none`
+- No click events, no play button, no hover effects, no lightbox — purely ambient
+- Videos just play silently as moving posters
+
+---
+
+### TEXT BELOW EACH PANEL (NOT overlaid — sitting BELOW the video)
+- Text sits **underneath** each video panel, left-aligned to that panel
+- Film title: Bebas Neue or bold sans-serif, white, uppercase, `20px`, tight
+  - Film 1: `"DESERT MACHINES"`
+  - Film 2: `"STEEL & SMOKE"`
+- Below the title: a small label in **red/orange-red**, bold, uppercase, tiny (`12px`), with a small arrow icon `→` or `>` next to it
+  - Film 1 label: `"EXPERIENCE ›"`
+  - Film 2 label: `"EXPLORE ›"`
+- Label color: `#CC2200` or `#FF3300` — the exact red-orange seen on the-lowdown
+- Label and arrow on one line, no underline, feels like a subtle CTA
+- These labels can link to the respective film pages or be `href="#"` placeholders for now
+
+---
+
+### MOBILE
+- Stack panels vertically on mobile (`< 768px`)
+- Each panel: `90vw` wide, `45vh` tall, centered
+- Text below each panel same treatment
+- Videos must autoplay on mobile — `muted` + `playsinline` both required
+
+---
+
+### WHAT TO REMOVE
+- Remove any previous overlay text on the videos
+- Remove any gradient overlays inside the video panels
+- Remove any `"FILM 01"` / `"FILM 02"` labels
+- Remove any hover effects or pointer interactions on videos
+
+---
+
+### FILES
+- `film-1.mp4` → left panel
+- `film-2.mp4` → right panel

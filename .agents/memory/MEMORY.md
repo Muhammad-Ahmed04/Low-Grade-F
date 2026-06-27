@@ -1,0 +1,3 @@
+- [LGF pnpm devDeps rule](lgf-devdeps.md) — always `pnpm add -D` in lgf-website; `dependencies` causes duplicate React and breaks hooks.
+- [LGF Vimeo background setup](lgf-vimeo.md) — `.vimeo-cover` CSS class + `background=1` param for ambient fullscreen iframes.
+- [LGF GSAP plugin registration](lgf-gsap.md) — import from `src/lib/gsap.ts` which registers ScrollTrigger once; never register in individual components.
