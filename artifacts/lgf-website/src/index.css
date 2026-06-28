@@ -85,7 +85,7 @@
 
 .films-panel-box {
   width: 100%;
-  height: 70vh;
+  height: 65vh;
 }
 
 @media (max-width: 767px) {
@@ -106,7 +106,7 @@
   transform: translate(-50%, -50%);
   /* Always fills whichever dimension is larger */
   width: 177.78vh;   /* 16/9 × 100vh — wide enough when container is taller */
-  height: 56.25vw;   /* 9/16 × 100vw — tall enough when container is wider */
+  height:79.25vw;   /* 9/16 × 100vw — tall enough when container is wider */
   min-width: 100%;
   min-height: 100%;
   border: none;
