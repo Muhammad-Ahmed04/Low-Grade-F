@@ -7,14 +7,8 @@ const CameraGimbalScene = lazy(
 );
 
 export default function About() {
-  // The 3D column is the ScrollTrigger trigger, so the assembly always plays as
-  // it scrolls into view — independent of column order (3D sits first on mobile).
   const sceneRef = useRef<HTMLDivElement>(null);
-  // Live scroll progress (0 → 1) for the 3D scene. A plain ref so updating it
-  // from ScrollTrigger never triggers a React re-render.
   const progress = useRef(0);
-  // Only mount the heavy three.js scene (its ~1 MB chunk + models) once the
-  // About section is near the viewport — keeps the initial page load light.
   const [show3D, setShow3D] = useState(false);
 
   useEffect(() => {
@@ -27,7 +21,6 @@ export default function About() {
           io.disconnect();
         }
       },
-      // Start loading ~one screen early so it's ready by the time it's in view.
       { rootMargin: "600px 0px" },
     );
     io.observe(el);
@@ -38,7 +31,6 @@ export default function About() {
     const el = sceneRef.current;
     if (!el) return;
 
-    // Respect reduced-motion: skip the scroll choreography, show it assembled.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       progress.current = 1;
       return;
@@ -46,8 +38,6 @@ export default function About() {
 
     const st = ScrollTrigger.create({
       trigger: el,
-      // Start a little after the scene enters and finish as it nears centre, so
-      // the user actually scrolls through (and watches) the assembly.
       start: "top 78%",
       end: "center 48%",
       scrub: true,
@@ -60,20 +50,29 @@ export default function About() {
   }, []);
 
   return (
+    // ✅ overflow-visible so the 3D scene can bleed outside section bounds
     <section
       id="about"
-      className="py-24 md:py-32 bg-black text-white border-t border-[#111] overflow-hidden"
+      className="relative py-24 md:py-32 bg-black text-white"
+      style={{ overflow: "visible" }}
     >
       <div className="container mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/*
+         * ✅ The grid is now just a layout scaffold for the text column.
+         * The 3D column is position:absolute so it escapes the grid box
+         * and can overlap the text and bleed outside section edges.
+         */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center"
+          style={{ minHeight: 620 }}
+        >
 
-          {/* Text Column — below the 3D on mobile, left on desktop */}
+          {/* Text Column */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
-            className="relative pl-6 md:pl-10 order-2 lg:order-1"
+            className="relative pl-6 md:pl-10 order-2 lg:order-1 py-12"
             style={{ zIndex: 2 }}
           >
             <div
@@ -91,22 +90,38 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* 3D Column — camera + gimbal assemble as you scroll. First on mobile,
-              right on desktop, so the animation is seen before the copy. */}
+          {/*
+           * ✅ 3D column — position:absolute so it's pulled out of grid flow.
+           * It starts at the right half of the section and is intentionally
+           * oversized (wider + taller than its grid slot) so the rig visually
+           * spills over the text column and the section edges — the "flying" effect.
+           * pointer-events:none means text/links behind it remain clickable.
+           */}
           <div
             ref={sceneRef}
-            className="relative h-[420px] sm:h-[500px] lg:h-[620px] order-1 lg:order-2"
-            style={{ zIndex: 1 }}
+            className="order-1 lg:order-2"
+            style={{
+              position: "absolute",
+              // Sit it in the right half but let it bleed left into the text
+              right: "-8%",
+              top: "50%",
+              transform: "translateY(-50%)",
+              // Deliberately oversized — wider than its grid column
+              width: "70%",
+              height: 780,
+              zIndex: 10,
+              pointerEvents: "none",
+              // Mobile: full width, sits above text
+              ...(typeof window !== "undefined" && window.innerWidth < 1024
+                ? { position: "relative", right: "auto", top: "auto", transform: "none", width: "100%", height: 420 }
+                : {}),
+            }}
           >
             {show3D && (
               <Suspense fallback={null}>
                 <CameraGimbalScene progress={progress} />
               </Suspense>
             )}
-            {/* CC-BY attribution for the two Poly Pizza models */}
-            <p className="absolute bottom-0 right-0 text-[10px] leading-tight text-gray-600/70 select-none pointer-events-none">
-              {/* 3D: “DJI RS3 Mini gimbal” by MisterGoodDeal · “Video Camera” by dook (CC-BY) */}
-            </p>
           </div>
 
         </div>

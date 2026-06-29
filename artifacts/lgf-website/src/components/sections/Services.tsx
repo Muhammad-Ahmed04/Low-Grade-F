@@ -109,7 +109,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 md:py-32 bg-black border-t border-[#111]">
+    <section id="services" ref={sectionRef} className="py-24 md:py-32 bg-black">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="text-center mb-16 services-anim">
           <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome mb-4">

@@ -26,7 +26,8 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="work" className="py-24 md:py-32 bg-black border-t border-[#111]">
+    // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+    <section id="work" className="py-24 md:py-32 bg-black">
       <div className="px-6 lg:px-16 mb-12">
         <h2
           ref={headingRef}

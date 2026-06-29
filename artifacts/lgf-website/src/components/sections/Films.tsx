@@ -46,7 +46,8 @@ export default function Films() {
   }, []);
 
   return (
-    <section id="films" ref={sectionRef} className="bg-black border-t border-[#111] py-20 md:py-28">
+    // ✅ FIX: Removed border-t border-[#111] — that was the white line
+    <section id="films" ref={sectionRef} className="bg-black py-20 md:py-28">
       {/* Heading */}
       <div className="text-center mb-10 md:mb-14 px-6 films-anim">
         <h2

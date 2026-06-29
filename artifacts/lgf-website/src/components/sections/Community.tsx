@@ -58,7 +58,7 @@ export default function Community() {
   }, []);
 
   return (
-    <section id="community" ref={sectionRef} className="py-24 md:py-32 bg-black border-t border-[#111]">
+    <section id="community" ref={sectionRef} className="py-24 md:py-32 bg-black">
       <div className="container mx-auto px-6 lg:px-16">
         {/* Heading */}
         <div className="text-center mb-6 community-anim">

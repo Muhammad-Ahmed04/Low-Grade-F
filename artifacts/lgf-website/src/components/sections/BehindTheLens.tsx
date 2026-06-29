@@ -29,7 +29,7 @@ export default function BehindTheLens() {
   const [large, ...rest] = BTS_PHOTOS;
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-black border-t border-[#111] overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 bg-black">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="mb-10 bts-anim">
           <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome leading-tight">

@@ -36,40 +36,44 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-[100dvh] overflow-hidden bg-black">
+    // ✅ FIX: Removed overflow-hidden from section — moved it to a dedicated
+    // clip wrapper around only the video/poster. This allows the bottom fade
+    // div to bleed 2px below the section boundary, closing the white seam.
+    <section className="relative w-full h-[100dvh] bg-black">
 
-      {/* Instant poster — shows while video defers */}
-      <img
-        src="/photos/hero-car.JPG"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-        draggable={false}
-      />
+      {/* ✅ Clip wrapper — contains ONLY the video & poster so they don't overflow */}
+      <div className="absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+        {/* Instant poster — shows while video defers */}
+        <img
+          src="/photos/hero-car.JPG"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
+        />
 
-      {/* Vimeo background — deferred until idle, fades in over poster */}
-      {showVideo && (
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{
-            pointerEvents: "none",
-            zIndex: 0,
-            opacity: videoReady ? 1 : 0,
-            transition: "opacity 0.8s ease"
-          }}
-        >
-          <iframe
-            src={VIMEO_HERO}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            className="vimeo-cover"
-            title="Hero background"
-            style={{ pointerEvents: "none" }}
-            onLoad={() => setVideoReady(true)}
-          />
-        </div>
-      )}
+        {/* Vimeo background — deferred until idle, fades in over poster */}
+        {showVideo && (
+          <div
+            className="absolute inset-0 overflow-hidden"
+            style={{
+              pointerEvents: "none",
+              opacity: videoReady ? 1 : 0,
+              transition: "opacity 0.8s ease"
+            }}
+          >
+            <iframe
+              src={VIMEO_HERO}
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              className="vimeo-cover"
+              title="Hero background"
+              style={{ pointerEvents: "none" }}
+              onLoad={() => setVideoReady(true)}
+            />
+          </div>
+        )}
+      </div>
 
       {/* Vignette — darkens edges all around */}
       <div
@@ -81,14 +85,10 @@ export default function Hero() {
         }}
       />
 
-      {/* Bottom fade — blends into black page below */}
+      {/* Dark overlay */}
       <div
-        aria-hidden="true"
-        style={{
-          position: "absolute", bottom: 0, left: 0, right: 0,
-          height: "45%", zIndex: 2, pointerEvents: "none",
-          background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 55%, #000 100%)",
-        }}
+        className="absolute inset-0"
+        style={{ background: "rgba(0,0,0,0.35)", pointerEvents: "none", zIndex: 1 }}
       />
 
       {/* Top fade — softens top edge behind logo */}
@@ -101,10 +101,14 @@ export default function Hero() {
         }}
       />
 
-      {/* Dark overlay */}
+      {/* ✅ Bottom fade — bleeds 2px below section to eliminate white seam */}
       <div
-        className="absolute inset-0"
-        style={{ background: "rgba(0,0,0,0.35)", pointerEvents: "none", zIndex: 1 }}
+        aria-hidden="true"
+        style={{
+          position: "absolute", bottom: -2, left: 0, right: 0,
+          height: "45%", zIndex: 2, pointerEvents: "none",
+          background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 55%, #000000 100%)",
+        }}
       />
 
       {/* Centered content */}
