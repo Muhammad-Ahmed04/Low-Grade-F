@@ -100,7 +100,7 @@ function buildCameraMaterials(): THREE.MeshStandardMaterial[] {
     reflectivity: 0.72,
     envMapIntensity: 0.95,
   });
-  return [body, lens, trim, glass];
+  return [body, body, lens, trim, glass];
 }
 
 function buildGimbalMaterials(): THREE.MeshStandardMaterial[] {
