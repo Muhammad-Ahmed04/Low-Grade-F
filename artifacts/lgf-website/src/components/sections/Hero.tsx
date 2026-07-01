@@ -126,8 +126,8 @@ export default function Hero() {
         />
         <p
           ref={taglineRef}
-          className="font-display text-chrome text-center uppercase tracking-[0.35em]"
-          style={{ fontSize: "clamp(0.9rem, 2.2vw, 1.5rem)", opacity: 0 }}
+          className="ui-eyebrow text-chrome text-center"
+          style={{ fontSize: "clamp(0.82rem, 1.7vw, 1rem)", opacity: 0 }}
         >
           Automobile.&nbsp; Tactical.&nbsp; Commercial.
         </p>

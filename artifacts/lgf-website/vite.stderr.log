@@ -1,0 +1,545 @@
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782836237361,"name":"Error","message":"THREE.WebGLRenderer: Error creating WebGL context.","stack":"    at new WebGLRenderer (http://localhost:3000/node_modules/.vite/deps/chunk-S2XD3O2O.js?v=fc5c842e:42016:19)\n\n\n\n\n\n\n\n\n"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782836237529,"name":"Error","message":"THREE.WebGLRenderer: Error creating WebGL context.","stack":"    at new WebGLRenderer (http://localhost:3000/node_modules/.vite/deps/chunk-S2XD3O2O.js?v=fc5c842e:42016:19)\n\n\n\n\n\n\n\n\n"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782836243129,"name":"Error","message":"THREE.WebGLRenderer: Error creating WebGL context.","stack":"    at new WebGLRenderer (http://localhost:3000/node_modules/.vite/deps/chunk-S2XD3O2O.js?v=fc5c842e:42016:19)\n\n\n\n\n\n\n\n\n"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782836249231,"name":"Error","message":"THREE.WebGLRenderer: Error creating WebGL context.","stack":"    at new WebGLRenderer (http://localhost:3000/node_modules/.vite/deps/chunk-S2XD3O2O.js?v=fc5c842e:42016:19)\n\n\n\n\n\n\n\n\n"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782839674423,"name":"Error","message":"Cannot read properties of undefined (reading 'current')","stack":"    at Object.current C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/three/CameraGimbalScene.tsx:241:41\n\n","loc":{"line":241,"column":41,"file":"C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/three/CameraGimbalScene.tsx"},"frame":"239|      smoothPan.current = THREE.MathUtils.damp(\n240|        smoothPan.current,\n241|        THREE.MathUtils.clamp(panProgress.current, 0, 1),\n   |                                          ^\n242|        4,\n243|        delta,"}
+[2m2:55:41 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: Unexpected token (30:65)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m{[33m;[31my}[33m>[31m
+ [90m    |[31m                                                                  [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:65
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style={;y}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                          ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11459:22)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4644:31)
+      at TypeScriptParserMixin.jsxParseAttributeValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4616:21)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4665:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+[2m2:55:43 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: JSX attributes must only be assigned a non-empty expression. (30:64)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m{}[33m>[31m
+ [90m    |[31m                                                                 [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:64
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style={}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                           ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseAttributeValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4618:16)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4665:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12117:24)
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782856545490,"name":"Error","message":"padd is not defined","stack":"    at Gallery C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx:30:66\n\n\n\n\n\n\n\n\n","loc":{"line":30,"column":66,"file":"C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx"},"frame":"28 |    return (\n29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx\n30 |      <section id=\"work\" className=\"section-shell bg-black\" style={padd}>\n   |                                                                   ^\n31 |        <div className=\"section-inner section-heading-wrap text-center\">\n32 |          <h2"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782856546522,"name":"Error","message":"paddi is not defined","stack":"    at Gallery C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx:30:66\n\n\n\n\n\n\n\n\n","loc":{"line":30,"column":66,"file":"C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx"},"frame":"28 |    return (\n29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx\n30 |      <section id=\"work\" className=\"section-shell bg-black\" style={paddi}>\n   |                                                                   ^\n31 |        <div className=\"section-inner section-heading-wrap text-center\">\n32 |          <h2"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782856548511,"name":"Error","message":"padding is not defined","stack":"    at Gallery C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx:30:66\n\n\n\n\n\n\n\n\n","loc":{"line":30,"column":66,"file":"C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx"},"frame":"28 |    return (\n29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx\n30 |      <section id=\"work\" className=\"section-shell bg-black\" style={padding}>\n   |                                                                   ^\n31 |        <div className=\"section-inner section-heading-wrap text-center\">\n32 |          <h2"}
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1782856551507,"name":"Error","message":"padding is not defined","stack":"    at Gallery C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx:30:66\n\n\n\n\n\n\n\n\n","loc":{"line":30,"column":66,"file":"C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx"},"frame":"28 |    return (\n29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx\n30 |      <section id=\"work\" className=\"section-shell bg-black\" style={padding-top}>\n   |                                                                   ^\n31 |        <div className=\"section-inner section-heading-wrap text-center\">\n32 |          <h2"}
+[2m2:55:52 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: Unexpected token, expected "}" (30:76)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m{padding[33m-[31mtop[33m:[31m[35m0[31m}[33m>[31m
+ [90m    |[31m                                                                             [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:76
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style={padding-top:0}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                          ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.expect (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6916:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4649:10)
+      at TypeScriptParserMixin.jsxParseAttributeValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4616:21)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4665:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13333:61)
+[2m2:56:00 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: Unexpected token (30:78)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m[32m"{padding-top"[31m[33m:[31m[35m0[31m}[33m>[31m
+ [90m    |[31m                                                                               [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:78
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style="{padding-top":0}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                          ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.jsxParseIdentifier (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4581:12)
+      at TypeScriptParserMixin.jsxParseNamespacedName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4588:23)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4664:22)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m2:56:03 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: Unexpected token (30:77)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m[32m"padding-top"[31m[33m:[31m[35m0[31m}[33m>[31m
+ [90m    |[31m                                                                              [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:77
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style="padding-top":0}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                          ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.jsxParseIdentifier (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4581:12)
+      at TypeScriptParserMixin.jsxParseNamespacedName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4588:23)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4664:22)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13326:10)
+[2m2:56:04 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\Gallery.tsx: Unexpected token, expected "}" (30:78)
+
+[0m [90m 28 |[31m   [36mreturn[31m (
+ [90m 29 |[31m     [90m// ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx[31m
+[31m[1m>[22m[31m[90m 30 |[31m     [33m<[31m[33msection[31m id[33m=[31m[32m"work"[31m className[33m=[31m[32m"section-shell bg-black"[31m style[33m=[31m{[32m"padding-top"[31m[33m:[31m[35m0[31m}[33m>[31m
+ [90m    |[31m                                                                               [31m[1m^[22m[31m
+ [90m 31 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"section-inner section-heading-wrap text-center"[31m[33m>[31m
+ [90m 32 |[31m         [33m<[31m[33mh2[31m
+ [90m 33 |[31m           ref[33m=[31m{headingRef}[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/Gallery.tsx[39m:30:78
+[33m  29 |      // ✅ FIX: Removed border-t border-[#111] — same white line cause as Films.tsx
+  30 |      <section id="work" className="section-shell bg-black" style={"padding-top":0}>
+  31 |        <div className="section-inner section-heading-wrap text-center">
+     |                          ^
+  32 |          <h2
+  33 |            ref={headingRef}[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.expect (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6916:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4649:10)
+      at TypeScriptParserMixin.jsxParseAttributeValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4616:21)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4665:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:13333:61)
+[2m2:57:47 AM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\shami\Desktop\Low-Grade-F\artifacts\lgf-website\src\components\sections\About.tsx: Unexpected token (79:23)
+
+[0m [90m 77 |[31m         zIndex[33m:[31m [35m1[31m[33m,[31m
+ [90m 78 |[31m         paddingTop[33m:[31m [32m"clamp(3rem, 5vw, 5rem)"[31m[33m,[31m
+[31m[1m>[22m[31m[90m 79 |[31m         paddingBottom[33m:[31m [33m,[31m
+ [90m    |[31m                        [31m[1m^[22m[31m
+ [90m 80 |[31m       }}
+ [90m 81 |[31m     [33m>[31m
+ [90m 82 |[31m       [33m<[31m[33mdiv[31m className[33m=[31m[32m"container mx-auto section-inner"[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx[39m:79:23
+[33m  77 |          zIndex: 1,
+  78 |          paddingTop: "clamp(3rem, 5vw, 5rem)",
+  79 |          paddingBottom: ,
+     |                         ^
+  80 |        }}
+  81 |      >[39m
+      at constructor (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11459:22)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseObjectProperty (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11967:83)
+      at TypeScriptParserMixin.parseObjPropValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseExpression (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4644:31)
+      at TypeScriptParserMixin.jsxParseAttributeValue (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4616:21)
+      at TypeScriptParserMixin.jsxParseAttribute (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4665:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4679:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\shami\Desktop\Low-Grade-F\node_modules\.pnpm\@babel+parser@7.29.7\node_modules\@babel\parser\lib\index.js:11063:23)
+[2m11:33:29 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /src/components/sections/About.tsx (resolved id: C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx) in C:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/pages/Home.tsx. Does the file exist?
+[2m11:34:40 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "@/components/three/CameraGimbalScene" from "src/components/sections/About.tsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx[39m:6:15
+[33m  6  |  import { ScrollTrigger } from "@/lib/gsap";
+  7  |  const CameraGimbalScene = lazy(
+  8  |    _c = () => import("@/components/three/CameraGimbalScene")
+     |                      ^
+  9  |  );
+  10 |  _c2 = CameraGimbalScene;[39m
+[2m11:34:40 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/components/three/CameraGimbalScene" from "src/components/sections/About.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx[39m:6:15
+[33m  6  |  import { ScrollTrigger } from "@/lib/gsap";
+  7  |  const CameraGimbalScene = lazy(
+  8  |    _c = () => import("@/components/three/CameraGimbalScene")
+     |                      ^
+  9  |  );
+  10 |  _c2 = CameraGimbalScene;[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:24622:20)
+[2m11:35:06 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/components/three/CameraGimbalScene" from "src/components/sections/About.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx[39m:6:15
+[33m  6  |  import { ScrollTrigger } from "@/lib/gsap";
+  7  |  const CameraGimbalScene = lazy(
+  8  |    _c = () => import("@/components/three/CameraGimbalScene")
+     |                      ^
+  9  |  );
+  10 |  _c2 = CameraGimbalScene;[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:24622:20)
+[2m11:35:11 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/components/three/CameraGimbalScene" from "src/components/sections/About.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/shami/Desktop/Low-Grade-F/artifacts/lgf-website/src/components/sections/About.tsx[39m:6:15
+[33m  6  |  import { ScrollTrigger } from "@/lib/gsap";
+  7  |  const CameraGimbalScene = lazy(
+  8  |    _c = () => import("@/components/three/CameraGimbalScene")
+     |                      ^
+  9  |  );
+  10 |  _c2 = CameraGimbalScene;[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///C:/Users/shami/Desktop/Low-Grade-F/node_modules/.pnpm/vite@7.3.6_@types+node@25.9_862e25755029436b4522f289876e278e/node_modules/vite/dist/node/chunks/config.js:24622:20)

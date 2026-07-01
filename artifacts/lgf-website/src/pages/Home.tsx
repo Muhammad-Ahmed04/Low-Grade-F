@@ -4,7 +4,6 @@ import Films from "@/components/sections/Films";
 import About from "@/components/sections/About";
 import Gallery from "@/components/sections/Gallery";
 import Services from "@/components/sections/Services";
-import BehindTheLens from "@/components/sections/BehindTheLens";
 import Community from "@/components/sections/Community";
 import Partners from "@/components/sections/Partners";
 import Contact from "@/components/sections/Contact";
@@ -17,10 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <Films />
-        <Gallery />
         <About />
+        <Gallery />
         <Services />
-        <BehindTheLens />
         <Community />
         <Partners />
         <Contact />

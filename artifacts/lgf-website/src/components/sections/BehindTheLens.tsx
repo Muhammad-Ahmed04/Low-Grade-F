@@ -29,13 +29,13 @@ export default function BehindTheLens() {
   const [large, ...rest] = BTS_PHOTOS;
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-black">
-      <div className="container mx-auto px-6 lg:px-16">
-        <div className="mb-10 bts-anim">
-          <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome leading-tight">
+    <section ref={sectionRef} className="section-shell bg-black">
+      <div className="container mx-auto section-inner">
+        <div className="section-heading-wrap bts-anim">
+          <h2 className="section-heading text-chrome leading-tight">
             BEHIND THE LENS
           </h2>
-          <p className="text-gray-500 tracking-widest uppercase text-sm mt-3">
+          <p className="ui-eyebrow text-gray-500 mt-3">
             The craft behind every frame.
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function BehindTheLens() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10">
           {/* Large left tile */}
           <div
-            className="group relative overflow-hidden bg-[#0a0a0a] bts-anim"
+            className="group relative overflow-hidden bg-[#0a0a0a] bts-anim surface-rounded"
             style={{ height: "clamp(300px, 55vw, 620px)" }}
           >
             <img
@@ -62,7 +62,7 @@ export default function BehindTheLens() {
               className="absolute bottom-0 left-0 right-0 p-6 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85), transparent)", zIndex: 2 }}
             >
-              <p className="text-xs tracking-widest uppercase text-[#C0C0C0] font-medium">
+              <p className="ui-eyebrow text-[#C0C0C0]">
                 {large.caption}
               </p>
             </div>
@@ -73,7 +73,7 @@ export default function BehindTheLens() {
             {rest.map((item, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden bg-[#0a0a0a] bts-anim"
+                className="group relative overflow-hidden bg-[#0a0a0a] bts-anim surface-rounded"
                 style={{ height: "clamp(140px, 26vw, 300px)" }}
               >
                 <img
@@ -91,7 +91,7 @@ export default function BehindTheLens() {
                   className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
                   style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85), transparent)", zIndex: 2 }}
                 >
-                  <p className="text-xs tracking-widest uppercase text-[#C0C0C0] font-medium">
+                  <p className="ui-eyebrow text-[#C0C0C0]">
                     {item.caption}
                   </p>
                 </div>

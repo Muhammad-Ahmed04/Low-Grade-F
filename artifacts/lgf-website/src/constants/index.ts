@@ -47,29 +47,29 @@ export const SERVICES = [
     title: "TACTICAL & FIREARMS PHOTOGRAPHY",
     description:
       "Precision. Power. We capture the craft behind every firearm with cinematic intensity.",
-    bgImage: "/photos/bts-1.jpg",
+    bgImage: "/photos/bts-3.jpg",
   },
   {
     id: 3,
     iconName: "Aperture" as const,
     title: "COMMERCIAL & BRAND SHOOTS",
     description: "Product launches, brand campaigns, content creation — built for impact.",
-    bgImage: "/photos/bts-3.jpg",
+    bgImage: "/photos/bts-1.jpg",
   },
 ] as const;
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 export const GALLERY_PHOTOS = [
   { src: "/photos/gallery-1.JPG",   label: "AUTOMOBILE" },
-  { src: "/photos/gallery-2.JPEG",  label: "TACTICAL" },
-  { src: "/photos/gallery-3.JPG",   label: "COMMERCIAL" },
-  { src: "/photos/gallery-4.JPG",   label: "AUTOMOBILE" },
   { src: "/photos/gallery-5.JPG",   label: "TACTICAL" },
+  { src: "/photos/gallery-4.JPG",   label: "COMMERCIAL" },
+  { src: "/photos/gallery-3.JPG",   label: "AUTOMOBILE" },
+  { src: "/photos/gallery-2.JPEG",  label: "TACTICAL" },
   { src: "/photos/gallery-6.JPG",   label: "COMMERCIAL" },
   { src: "/photos/gallery-7.JPG",   label: "AUTOMOBILE" },
-  { src: "/photos/gallery-8.JPG",   label: "TACTICAL" },
+  { src: "/photos/gallery-10.jpeg", label: "TACTICAL" },
   { src: "/photos/gallery-9.JPEG",  label: "COMMERCIAL" },
-  { src: "/photos/gallery-10.jpeg", label: "AUTOMOBILE" },
+  { src: "/photos/gallery-8.JPG",   label: "AUTOMOBILE" },
 ] as const;
 
 // ─── Behind the Lens ──────────────────────────────────────────────────────────
@@ -101,8 +101,8 @@ export const BEHOLD_FEED_ID = "CshoDpAzaLz8Unyr7NmE";
 
 // ─── Contact ──────────────────────────────────────────────────────────────────
 export const CONTACT = {
-  whatsapp: "https://wa.me/923001234567",
-  email: "hello@lowgradefilms.com",
+  whatsapp: "https://wa.me/96895421806",
+  email: "info@lowgradefilms.com",
   instagram: "https://www.instagram.com/lowgradefilms",
-  youtube: "https://youtube.com/@lowgradefilms2099",
+  linkedin: "#",
 } as const;

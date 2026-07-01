@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Car, Crosshair, Aperture } from "@phosphor-icons/react";
 import { gsap } from "@/lib/gsap";
 import { SERVICES } from "@/constants";
@@ -11,72 +11,86 @@ function ServiceCard({
   description,
   iconName,
   bgImage,
-  delay,
 }: {
   title: string;
   description: string;
   iconName: IconName;
   bgImage: string;
-  delay: number;
 }) {
   const [hovered, setHovered] = useState(false);
   const Icon = ICON_MAP[iconName];
 
   return (
     <div
-      className="relative overflow-hidden transition-all duration-500"
+      className="group relative overflow-hidden bg-[#0a0a0a] surface-rounded services-anim"
       style={{
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
-        boxShadow: hovered ? "0 0 40px rgba(192,192,192,0.22)" : "none",
-        animationDelay: `${delay}s`,
+        minHeight: "clamp(320px, 34vw, 470px)",
+        boxShadow: hovered ? "0 0 36px rgba(255,255,255,0.14)" : "none",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* BG photo */}
-      <div
-        className="absolute inset-0 transition-transform duration-700 ease-out"
+      <img
+        src={bgImage}
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
         style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          transform: hovered ? "scale(1.06)" : "scale(1)",
+          transform: "scale(1)",
+          filter: hovered ? "brightness(1.16) saturate(1.08)" : "brightness(1) saturate(1)",
+        }}
+        draggable={false}
+      />
+
+      <div
+        className="absolute inset-0 transition-opacity duration-500"
+        style={{
+          opacity: hovered ? 0.98 : 0.92,
+          background:
+            hovered
+              ? "linear-gradient(to bottom, rgba(30,30,30,0.18) 0%, rgba(0,0,0,0.34) 34%, rgba(0,0,0,0.62) 100%)"
+              : "linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.58) 34%, rgba(0,0,0,0.82) 100%)",
         }}
       />
 
-      {/* Overlay */}
       <div
-        className="absolute inset-0 transition-all duration-500"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
-          background: hovered
-            ? "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.72) 100%)"
-            : "linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.88) 100%)",
+          opacity: hovered ? 1 : 0,
+          border: "1px solid rgba(255,255,255,0.18)",
         }}
       />
 
-      {/* Silver top border */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[2px] bg-chrome transition-opacity duration-500"
-        style={{ opacity: hovered ? 1 : 0.4, zIndex: 2 }}
-      />
-
-      {/* Content */}
-      <div className="relative p-8 md:p-10" style={{ zIndex: 1 }}>
+      <div className="relative h-full flex flex-col p-6 md:p-10" style={{ zIndex: 2 }}>
         <div
-          className="mb-8 transition-all duration-300"
+          className="mb-8 md:mb-10 text-white/90 transition-transform duration-300"
+          style={{ transform: hovered ? "translateY(-2px)" : "translateY(0)" }}
+        >
+          <Icon size={42} weight="thin" />
+        </div>
+
+        <h3
+          className="text-white uppercase font-bold"
           style={{
-            color: hovered ? "#ffffff" : "#c8c8c8",
-            filter: hovered
-              ? "drop-shadow(0px 4px 24px rgba(220,220,220,0.6))"
-              : "drop-shadow(0px 4px 12px rgba(180,180,180,0.2))",
+            fontFamily: "var(--font-sans)",
+            fontSize: "clamp(1.1rem, 1.7vw, 1.5rem)",
+            lineHeight: 1.22,
+            letterSpacing: "0.01em",
           }}
         >
-          <Icon size={56} weight="thin" />
-        </div>
-        <h3 className="font-display text-2xl md:text-3xl uppercase tracking-wide text-white mb-4 leading-tight">
           {title}
         </h3>
-        <p className="text-gray-300 font-light leading-relaxed text-sm md:text-base">
+
+        <p
+          className="mt-6 text-white/90"
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "clamp(0.95rem, 1.15vw, 1.05rem)",
+            lineHeight: 1.55,
+            maxWidth: "20ch",
+          }}
+        >
           {description}
         </p>
       </div>
@@ -89,19 +103,20 @@ export default function Services() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".services-anim",
+      gsap.fromTo(
+        ".services-anim",
         { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power2.out",
-          stagger: 0.15,
+          stagger: 0.12,
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 75%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -109,25 +124,21 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 md:py-32 bg-black">
-      <div className="container mx-auto px-6 lg:px-16">
-        <div className="text-center mb-16 services-anim">
-          <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome mb-4">
-            WHAT WE DO
-          </h2>
+    <section id="services" ref={sectionRef} className="section-shell bg-black">
+      <div className="container mx-auto section-inner">
+        <div className="text-center section-heading-wrap services-anim">
+          <h2 className="section-heading text-chrome">WHAT WE DO</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {SERVICES.map((svc, i) => (
-            <div key={svc.id} className="services-anim">
-              <ServiceCard
-                title={svc.title}
-                description={svc.description}
-                iconName={svc.iconName}
-                bgImage={svc.bgImage}
-                delay={i * 0.15}
-              />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
+          {SERVICES.map((service) => (
+            <ServiceCard
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              iconName={service.iconName}
+              bgImage={service.bgImage}
+            />
           ))}
         </div>
       </div>

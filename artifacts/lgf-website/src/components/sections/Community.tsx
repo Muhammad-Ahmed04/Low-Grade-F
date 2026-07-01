@@ -58,18 +58,18 @@ export default function Community() {
   }, []);
 
   return (
-    <section id="community" ref={sectionRef} className="py-24 md:py-32 bg-black">
-      <div className="container mx-auto px-6 lg:px-16">
+    <section id="community" ref={sectionRef} className="section-shell bg-black">
+      <div className="container mx-auto section-inner">
         {/* Heading */}
-        <div className="text-center mb-6 community-anim">
-          <h2 className="font-display text-5xl md:text-7xl uppercase tracking-wider text-chrome mb-4">
+        <div className="text-center section-heading-wrap community-anim">
+          <h2 className="section-heading text-chrome mb-4">
             COMMUNITY
           </h2>
           <a
             href={CONTACT.instagram}
             target="_blank"
             rel="noreferrer"
-            className="text-gray-400 hover:text-white transition-colors tracking-widest uppercase text-sm font-medium"
+            className="ui-eyebrow text-gray-400 hover:text-white transition-colors"
           >
             @lowgradefilms
           </a>
@@ -92,14 +92,14 @@ export default function Community() {
             href={CONTACT.instagram}
             target="_blank"
             rel="noreferrer"
-            className="group relative inline-flex items-center justify-center px-12 py-4 uppercase tracking-widest text-sm font-medium text-white transition-all duration-300 overflow-hidden"
+            className="group relative inline-flex items-center justify-center px-12 py-4 text-white transition-all duration-300 overflow-hidden surface-rounded"
             style={{ border: "1.5px solid rgba(192,192,192,0.5)", minHeight: 52 }}
           >
             <span
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ background: "linear-gradient(135deg, #C0C0C0, #E8E8E8, #A8A8A8)" }}
             />
-            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+            <span className="ui-cta-text relative z-10 group-hover:text-black transition-colors duration-300">
               FOLLOW US
             </span>
           </a>

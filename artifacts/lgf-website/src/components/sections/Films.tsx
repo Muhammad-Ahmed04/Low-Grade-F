@@ -1,32 +1,32 @@
-import { useRef, useEffect, useState } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { FILMS } from "@/constants";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "@/lib/gsap";
 
 export default function Films() {
   const sectionRef = useRef<HTMLElement>(null);
-  // Defer the two Vimeo players until the section is near the viewport so they
-  // don't load on initial page load.
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
+        if (entries.some((entry) => entry.isIntersecting)) {
           setVisible(true);
           io.disconnect();
         }
       },
       { rootMargin: "600px 0px" },
     );
+
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".films-anim",
+      gsap.fromTo(
+        ".films-anim",
         { opacity: 0, y: 40 },
         {
           opacity: 1,
@@ -38,7 +38,7 @@ export default function Films() {
             trigger: sectionRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -46,23 +46,17 @@ export default function Films() {
   }, []);
 
   return (
-    // ✅ FIX: Removed border-t border-[#111] — that was the white line
-    <section id="films" ref={sectionRef} className="bg-black py-20 md:py-28">
-      {/* Heading */}
-      <div className="text-center mb-10 md:mb-14 px-6 films-anim">
-        <h2
-          className="font-display text-white uppercase tracking-wider"
-          style={{ fontSize: "clamp(3rem, 7vw, 7rem)", lineHeight: 0.95 }}
-        >
-          SHORT FILMS
-        </h2>
+    <section id="films" ref={sectionRef} className="bg-black section-shell-tight">
+      <div className="text-center section-heading-wrap section-inner films-anim">
+        <h2 className="section-heading text-white">SHORT FILMS</h2>
       </div>
 
-      {/* Panels */}
-      <div className="flex flex-col md:flex-row items-start justify-center mx-auto px-6" style={{ gap: 24 }}>
-        {/* Film 1 */}
+      <div
+        className="flex flex-col md:flex-row items-start justify-center mx-auto px-4 md:px-8 lg:px-10"
+        style={{ gap: "clamp(1.5rem, 5vw, 82px)" }}
+      >
         <div className="flex flex-col films-card films-anim">
-          <div className="relative overflow-hidden films-panel-box" style={{ borderRadius: 12, background: "#000" }}>
+          <div className="relative overflow-hidden films-panel-box" style={{ background: "#000" }}>
             {visible && (
               <iframe
                 src="https://player.vimeo.com/video/1204904726?autoplay=1&muted=1&loop=1&background=1&playsinline=1&quality=auto"
@@ -76,18 +70,24 @@ export default function Films() {
             )}
           </div>
           <div className="mt-4 px-1">
-            <p className="font-display text-white uppercase" style={{ fontSize: 20, letterSpacing: "0.04em", lineHeight: 1.2 }}>
-              DESERT MACHINES
+            <p
+              className="ui-card-title text-white"
+              style={{ fontSize: 20 }}
+            >
+              COMMERCIAL VENTURES
             </p>
-            <a href="#" className="inline-block mt-1 uppercase font-semibold tracking-widest" style={{ fontSize: 12, color: "#C0C0C0", textDecoration: "none" }}>
-              EXPERIENCE ›
+            <a
+              href="#"
+              className="ui-cta-text inline-block mt-1"
+              style={{ color: "#C0C0C0", textDecoration: "none" }}
+            >
+            Vision - Brand - Story
             </a>
           </div>
         </div>
 
-        {/* Film 2 */}
         <div className="flex flex-col films-card films-anim">
-          <div className="relative overflow-hidden films-panel-box" style={{ borderRadius: 12, background: "#000" }}>
+          <div className="relative overflow-hidden films-panel-box" style={{ background: "#000" }}>
             {visible && (
               <iframe
                 src="https://player.vimeo.com/video/1204904725?autoplay=1&muted=1&loop=1&background=1&playsinline=1&quality=auto"
@@ -101,11 +101,18 @@ export default function Films() {
             )}
           </div>
           <div className="mt-4 px-1">
-            <p className="font-display text-white uppercase" style={{ fontSize: 20, letterSpacing: "0.04em", lineHeight: 1.2 }}>
-              STEEL & SMOKE
+            <p
+              className="ui-card-title text-white"
+              style={{ fontSize: 20 }}
+            >
+              DRIFT FEST
             </p>
-            <a href="#" className="inline-block mt-1 uppercase font-semibold tracking-widest" style={{ fontSize: 12, color: "#C0C0C0", textDecoration: "none" }}>
-              EXPLORE ›
+            <a
+              href="#"
+              className="ui-cta-text inline-block mt-1"
+              style={{ color: "#C0C0C0", textDecoration: "none" }}
+            >
+              Heat - Smoke - Slide
             </a>
           </div>
         </div>
