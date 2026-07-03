@@ -181,27 +181,56 @@ button.surface-rounded {
 
 /* Films cards & panels */
 .films-card {
-  flex: 0 1 min(46.2vw, 585px);
-  width: min(46.2vw, 585px);
-  max-width: min(46.2vw, 585px);
+  flex: 0 1 min(47.8vw, 660px);
+  width: min(47.8vw, 660px);
+  max-width: min(47.8vw, 660px);
 }
 
 .films-panel-box {
   width: 100%;
   aspect-ratio: 1 / 1;
-  min-height: clamp(440px, 46.2vw, 590px);
+  min-height: clamp(500px, 47.8vw, 660px);
   border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  clip-path: inset(0 round var(--radius));
+  background: #000;
+  transform: translateZ(0);
+}
+
+.films-media-mask {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  clip-path: inset(0 round inherit);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  transform: translateZ(0);
+}
+
+.films-panel-box .vimeo-cover {
+  border-radius: inherit;
 }
 
 @media (max-width: 767px) {
   .films-card {
-    flex: 0 0 92vw;
-    width: 92vw;
-    max-width: 92vw;
+    flex: 0 0 min(88vw, 460px);
+    width: min(88vw, 460px);
+    max-width: min(88vw, 460px);
   }
   .films-panel-box {
-    aspect-ratio: 1 / 1;
-    min-height: clamp(320px, 92vw, 430px);
+    aspect-ratio: 0.9 / 1;
+    min-height: clamp(270px, 82vw, 380px);
+    border-radius: 28px;
+    clip-path: inset(0 round 28px);
+  }
+
+  .films-panel-box .vimeo-cover {
+    width: 158%;
+    height: 158%;
+    min-width: 158%;
+    min-height: 158%;
   }
 }
 
@@ -252,20 +281,21 @@ button.surface-rounded {
 }
 
 .partner-logo {
-  height: 48px;
+  height: 64px;
   width: auto;
-  min-width: 100px;
-  max-width: 160px;
+  min-width: 124px;
+  max-width: 220px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
   filter: brightness(0) invert(1);
-  opacity: 0.8;
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  opacity: 0.88;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   user-select: none;
   pointer-events: auto;
+  transform-origin: center center;
 }
 
 .partner-logo:hover {
@@ -275,8 +305,9 @@ button.surface-rounded {
 
 @media (max-width: 768px) {
   .partner-logo {
-    height: 36px;
-    min-width: 80px;
+    height: 46px;
+    min-width: 92px;
+    max-width: 168px;
   }
   .marquee-track {
     animation-duration: 45s;

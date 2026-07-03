@@ -133,16 +133,6 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Bouncing arrow */}
-      <div
-        ref={arrowRef}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 arrow-bounce"
-        style={{ zIndex: 10, width: 24, height: 24, opacity: 0 }}
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(192,192,192,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </div>
     </section>
   );
 }

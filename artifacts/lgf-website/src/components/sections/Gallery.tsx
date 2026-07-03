@@ -51,7 +51,8 @@ export default function Gallery() {
           scrollbarWidth: "none",
           msOverflowStyle: "none",
           WebkitOverflowScrolling: "touch",
-          touchAction: "pan-y pinch-zoom",
+          touchAction: "pan-x pan-y pinch-zoom",
+          overscrollBehaviorX: "contain",
         }}
       >
         {GALLERY_PHOTOS.map((photo, i) => (

@@ -2,9 +2,28 @@ import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 import { PARTNER_LOGOS } from "@/constants";
 
-function LogoItem({ src, alt }: { src: string; alt: string }) {
+function LogoItem({
+  src,
+  alt,
+  scale = 1,
+}: {
+  src: string;
+  alt: string;
+  scale?: number;
+}) {
   return (
-    <div style={{ flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 clamp(20px, 4vw, 40px)", minWidth: 96 }}>
+    <div
+      style={{
+        flexShrink: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 clamp(18px, 3.6vw, 34px)",
+        minWidth: "clamp(132px, 12vw, 190px)",
+        height: "clamp(68px, 7vw, 88px)",
+        overflow: "visible",
+      }}
+    >
       <img
         src={src}
         alt={alt}
@@ -12,6 +31,7 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
         decoding="async"
         draggable={false}
         className="partner-logo"
+        style={{ transform: `scale(${scale})` }}
       />
     </div>
   );
@@ -55,8 +75,8 @@ export default function Partners() {
 
         {/* Marquee track — two sets for seamless loop */}
         <div className="marquee-track" style={{ padding: "clamp(18px, 4vw, 28px) 0" }}>
-          {PARTNER_LOGOS.map((logo, i) => <LogoItem key={`a-${i}`} src={logo.src} alt={logo.alt} />)}
-          {PARTNER_LOGOS.map((logo, i) => <LogoItem key={`b-${i}`} src={logo.src} alt={logo.alt} />)}
+          {PARTNER_LOGOS.map((logo, i) => <LogoItem key={`a-${i}`} src={logo.src} alt={logo.alt} scale={logo.scale} />)}
+          {PARTNER_LOGOS.map((logo, i) => <LogoItem key={`b-${i}`} src={logo.src} alt={logo.alt} scale={logo.scale} />)}
         </div>
       </div>
     </section>

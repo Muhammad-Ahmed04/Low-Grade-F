@@ -28,8 +28,8 @@ const GIMBAL_URL = `${import.meta.env.BASE_URL}models/gimbal.glb`;
 
 type ProgressRef = { current: number };
 const PAN_DISTANCE = 1.32;
-const ENTRY_RIG_SCALE = 0.98;
-const DOCKED_RIG_SCALE = 0.72;
+const ENTRY_RIG_SCALE = 1.02;
+const DOCKED_RIG_SCALE = 0.78;
 const FINAL_RIG_Y = -0.2;
 const PAN_DAMPING = 2.8;
 const PAN_BLEND_START = 0.9;
@@ -410,7 +410,7 @@ export default function CameraGimbalScene({
         toneMapping: THREE.ACESFilmicToneMapping,
         toneMappingExposure: 1.15,
       }}
-      camera={{ position: [0, 0.4, 6.6], fov: 35 }}
+      camera={{ position: [0, 0.4, 6.45], fov: 33 }}
       style={{ background: "transparent" }}
     >
       <Suspense fallback={null}>

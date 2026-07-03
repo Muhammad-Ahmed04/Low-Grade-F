@@ -38,7 +38,7 @@ export const SERVICES = [
     iconName: "Car" as const,
     title: "AUTOMOBILE PHOTOGRAPHY & FILM",
     description:
-      "Ferraris, muscle cars, supercars — we make every machine look like it belongs on a poster.",
+      "Purpose built automotive films that translate engineering, design, and motion into compelling visual experiences.",
     bgImage: "/photos/bts-2.jpg",
   },
   {
@@ -46,14 +46,14 @@ export const SERVICES = [
     iconName: "Crosshair" as const,
     title: "TACTICAL & FIREARMS PHOTOGRAPHY",
     description:
-      "Precision. Power. We capture the craft behind every firearm with cinematic intensity.",
+      "Specialised productions that present tactical equipment and firearms with precision, credibility, and attention to detail.",
     bgImage: "/photos/bts-3.jpg",
   },
   {
     id: 3,
     iconName: "Aperture" as const,
     title: "COMMERCIAL & BRAND SHOOTS",
-    description: "Product launches, brand campaigns, content creation — built for impact.",
+    description: "Distinctive visual campaigns developed to strengthen brand presence and communicate value with clarity.",
     bgImage: "/photos/bts-1.jpg",
   },
 ] as const;
@@ -81,19 +81,21 @@ export const BTS_PHOTOS = [
 
 // ─── Partners ─────────────────────────────────────────────────────────────────
 export const PARTNER_LOGOS = [
-  { src: "/photos/partner-1.PNG",  alt: "Partner 1" },
-  { src: "/photos/partner-2.PNG",  alt: "Partner 2" },
-  { src: "/photos/partner-3.PNG",  alt: "Porsche" },
-  { src: "/photos/partner-4.PNG",  alt: "Lamborghini" },
-  { src: "/photos/partner-5.PNG",  alt: "Partner 5" },
-  { src: "/photos/partner-6.PNG",  alt: "Partner 6" },
-  { src: "/photos/partner-7.PNG",  alt: "Partner 7" },
-  { src: "/photos/partner-9.PNG",  alt: "Partner 9" },
-  { src: "/photos/partner-10.PNG", alt: "Ferrari" },
-  { src: "/photos/partner-11.PNG", alt: "Partner 11" },
-  { src: "/photos/partner-12.PNG", alt: "Partner 12" },
-  { src: "/photos/partner-13.WEBP", alt: "Partner 13" },
-  { src: "/photos/partner-14.PNG", alt: "Partner 14" },
+  { src: "/photos/partner-nasa-autocare.PNG", alt: "NASA Autocare", scale: 1.42 },
+  { src: "/photos/partner-rust-oleum.PNG", alt: "Rust-Oleum", scale: 1.34 },
+  { src: "/photos/partner-guns-armor.PNG", alt: "Guns & Armor", scale: 1.44 },
+  { src: "/photos/partner-rex-motors.PNG", alt: "Rex Motors", scale: 1.38 },
+  { src: "/photos/partner-1.PNG",  alt: "Partner 1", scale: 1.08 },
+  { src: "/photos/partner-3.PNG",  alt: "Porsche", scale: 1.12 },
+  { src: "/photos/partner-4.PNG",  alt: "Lamborghini", scale: 1.12 },
+  { src: "/photos/partner-5.PNG",  alt: "Partner 5", scale: 1.99 },
+  { src: "/photos/partner-7.PNG",  alt: "Partner 7", scale: 1.16 },
+  { src: "/photos/partner-9.PNG",  alt: "Partner 9", scale: 1.8 },
+  { src: "/photos/partner-10.PNG", alt: "Ferrari", scale: 1.12 },
+  { src: "/photos/partner-11.PNG", alt: "Partner 11", scale: 1.16 },
+  { src: "/photos/partner-12.PNG", alt: "Partner 12", scale: 1.18 },
+  { src: "/photos/partner-13.WEBP", alt: "Partner 13", scale: 1.16 },
+  { src: "/photos/partner-14.PNG", alt: "Partner 14", scale: 1.12 },
 ] as const;
 
 // ─── Community ────────────────────────────────────────────────────────────────

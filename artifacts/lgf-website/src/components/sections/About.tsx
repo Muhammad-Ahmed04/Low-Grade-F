@@ -1,152 +1,419 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { ScrollTrigger } from "@/lib/gsap";
 
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const easeInOutCubic = (x: number) =>
+  x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 const CameraGimbalScene = lazy(
   () => import("@/components/three/CameraGimbalScene"),
 );
 
+const TITLE_LINES = [
+  { text: "BEING SEEN",       className: "text-white",  marginTop: "0",       align:"left", paddingLeft: "2.1em"},
+  { text: "IS EASY.",         className: "text-white",  marginTop: "0.08em",  align: "center"},
+  { text: "BEING REMEMBERED", className: "text-chrome", marginTop: "0.08em",  align: "center"},
+  { text: "IS NOT.",          className: "text-chrome", marginTop: "0.08em",  align: "center", paddingLeft: "1.1em"},
+];
+
 export default function About() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<HTMLDivElement>(null);
-  const progress = useRef(0);
-  const panProgress = useRef(0);
-  const [show3D, setShow3D] = useState(false);
-  const [copyOpacity, setCopyOpacity] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const pinRef     = useRef<HTMLDivElement>(null);
+  const rigProgressRef = useRef(1);
+  const rigPanRef = useRef(1);
+  const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const el = sceneRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setShow3D(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "900px 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const media = window.matchMedia("(max-width: 767px)");
+    const sync = () => setIsMobile(media.matches);
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
   }, []);
 
   useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
+    const track = wrapperRef.current;
+    const pinEl = pinRef.current;
+    if (!track || !pinEl) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      progress.current = 1;
-      panProgress.current = 1;
-      setCopyOpacity(1);
+      setProgress(1);
       return;
     }
 
-    const dockTrigger = ScrollTrigger.create({
-      trigger: el,
-      start: "top bottom",
-      end: "center 66%",
-      scrub: true,
-      onUpdate: (self) => {
-        progress.current = self.progress;
-      },
+    const trigger = ScrollTrigger.create({
+      trigger: track,
+      start: "top top",
+      end: "bottom bottom",
+      pin: pinEl,
+      pinSpacing: true,
+      scrub: isMobile ? 0.28 : 0.42,
+      onUpdate: (self) => setProgress(self.progress),
     });
 
-    const panTrigger = ScrollTrigger.create({
-      trigger: el,
-      start: "center 66%",
-      end: "center center",
-      scrub: 0.35,
-      onUpdate: (self) => {
-        panProgress.current = self.progress;
-        setCopyOpacity(self.progress);
-      },
-    });
+    return () => trigger.kill();
+  }, [isMobile]);
 
-    return () => {
-      dockTrigger.kill();
-      panTrigger.kill();
-    };
-  }, []);
+  /*
+   * TIMELINE
+   * 0.00–0.15  HOLD — user sees text1 centered, nothing moves
+   * 0.15–0.22  seam line grows across
+   * 0.22–0.42  panels close (eye-close)
+   * 0.42–0.50  text1 fades out
+   * 0.50–0.72  text2 rises in
+   * 0.72–1.00  HOLD — user sees text2, then scrolls past
+   */
+  const linePhase    = clamp01((progress - 0.12) / 0.06);
+  const panelPhase   = clamp01((progress - 0.18) / 0.15);
+  const text1Fade    = clamp01((progress - 0.33) / 0.07);
+  const swapPhase    = clamp01((progress - 0.4) / 0.18);
+
+  const panelVisible = progress >= 0.12 ? 1 : 0;
+  const lineVisible  = panelPhase < 0.96 ? panelVisible : 0;
+  const stagePhase = clamp01((progress - 0.72) / 0.16);
+  const rigPhase = isMobile
+    ? clamp01((progress - 0.72) / 0.2)
+    : clamp01((progress - 0.7) / 0.24);
+  const rigSettlePhase = isMobile
+    ? clamp01((progress - 0.84) / 0.1)
+    : clamp01((progress - 0.85) / 0.1);
+  // Hero line: fade in 0.40–0.48, hold 0.48–0.58, fade out 0.58–0.66.
+  // Fully opaque during the hold, fully gone (0 opacity) by 0.66 —
+  // guaranteed no overlap with the paragraph, which starts at 0.66.
+  const heroInPhase = clamp01((progress - 0.4) / 0.07);
+  const heroFillPhase = clamp01((progress - 0.48) / 0.18);
+  const heroOutPhase = clamp01((progress - 0.68) / 0.06);
+  const heroLineOpacity = heroInPhase * (1 - heroOutPhase);
+  const heroLinePhase = heroInPhase; // drives the slide-in transform only
+  const paragraphPhase = clamp01((progress - 0.72) / 0.1);
+  const easedRigSettlePhase = easeInOutCubic(rigSettlePhase);
+
+  rigProgressRef.current = rigPhase;
+  rigPanRef.current = 0;
 
   return (
-    <section
+    <div
+      ref={wrapperRef}
       id="about"
-      className="relative section-shell-tight bg-black text-white pb-0"
-      style={{
-        overflow: "visible",
-        zIndex: 1,
-        paddingTop: "clamp(3rem, 5vw, 5rem)",
-        paddingBottom: 0,
-      }}
+      style={{ height: isMobile ? "300vh" : "260vh", position: "relative" }}
     >
-      <div className="container mx-auto section-inner">
+      <div
+        ref={pinRef}
+        style={{
+          width: "100%",
+          height: "100vh",
+          background: "#18181b",
+          overflow: isMobile ? "clip" : "hidden",
+          position: "relative",
+          color: "#fff",
+        }}
+      >
+
+        {/* ── Text 1 — already settled, no fly-in ──────────────────────── */}
         <div
-          ref={trackRef}
-          className="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-0 min-h-[760px] lg:min-h-[740px]"
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            display: "flex",
+            alignItems: "center",
+            padding: "0 clamp(1.5rem, 4vw, 4rem)",
+            opacity: 1 - text1Fade,
+            willChange: "opacity",
+          }}
         >
-          <motion.div
-            className="relative pl-6 md:pl-10 order-2 lg:order-1 py-4 md:py-12 max-w-[34rem]"
+          <div style={{ width: "100%" }}>
+            {TITLE_LINES.map((line) => (
+              <div
+                key={line.text}
+                className={`${line.className} font-sans`}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  textAlign: line.align as "left" | "right",
+                  marginTop: line.marginTop,
+                  paddingLeft: isMobile
+                    ? line.text === "BEING SEEN"
+                      ? "1.15em"
+                      : line.text === "IS NOT."
+                        ? "0.62em"
+                        : "0"
+                    : line.paddingLeft ?? "0",
+                  fontSize: isMobile
+                    ? "clamp(2.15rem, 10vw, 3.4rem)"
+                    : "clamp(2.8rem, 6.8vw, 7rem)",
+                  lineHeight: 1,
+                  letterSpacing: "-0.03em",
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                }}
+              >
+                {isMobile && line.text === "BEING REMEMBERED" ? (
+                  <>
+                    <span
+                      style={{
+                        display: "block",
+                        width: "100%",
+                        textAlign: "left",
+                        paddingLeft: "1.32em",
+                      }}
+                    >
+                      BEING
+                    </span>
+                    <span style={{ display: "block" }}>REMEMBERED</span>
+                  </>
+                ) : (
+                  line.text
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Eye-close panels ─────────────────────────────────────────── */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 10,
+            pointerEvents: "none",
+            overflow: "hidden",
+          }}
+        >
+          {/* Seam line */}
+          <div
             style={{
-              zIndex: 5,
-              opacity: copyOpacity,
-              transform: `translate3d(0, ${40 - copyOpacity * 40}px, 0)`,
+              position: "absolute",
+              top: "50%",
+              left: 0,
+              width: "100%",
+              height: "2px",
+              transform: `translateY(-50%) scaleX(${linePhase})`,
+              transformOrigin: "center center",
+              background: "#000",
+              opacity: lineVisible,
+              willChange: "transform, opacity",
+            }}
+          />
+
+          {/* TOP panel */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0, left: 0, right: 0,
+              height: "50%",
+              transform: `scaleY(${panelPhase})`,
+              transformOrigin: "bottom center",
+              background: "#000",
+              opacity: panelVisible,
+              willChange: "transform",
+            }}
+          />
+
+          {/* BOTTOM panel */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0, left: 0, right: 0,
+              height: "50%",
+              transform: `scaleY(${panelPhase})`,
+              transformOrigin: "top center",
+              background: "#000",
+              opacity: panelVisible,
+              willChange: "transform",
+            }}
+          />
+        </div>
+
+        {/* ── Text 2 ───────────────────────────────────────────────────── */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 20,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: isMobile
+              ? "0 clamp(1.25rem, 5vw, 1.75rem)"
+              : "0 clamp(2rem, 4vw, 3rem)",
+            overflow: isMobile ? "clip" : "hidden",
+          }}
+        >
+          {/*
+            NOTE: the rig used to live *inside* this clip-path box, which meant
+            two independent reveal animations (the clip-path sweep AND the
+            rig's own opacity/transform) were fighting over the same tall
+            element — that's what produced the visible "cut" as you scrolled.
+            The rig now lives outside this box as its own sibling layer, so
+            only the text block is masked by the clip-path.
+          */}
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "relative",
+              clipPath: `inset(0 0 ${(1 - swapPhase) * 100}% 0)`,
+              willChange: "clip-path",
             }}
           >
             <div
-              className="absolute left-0 top-0 bottom-0 w-[2px]"
               style={{
-                background:
-                  "linear-gradient(to bottom, #C0C0C0, #E8E8E8, #C0C0C0)",
-                opacity: 0.8,
+                position: "absolute",
+                left: isMobile ? "clamp(1.25rem, 6vw, 1.75rem)" : "clamp(2rem, 8vw, 7rem)",
+                right: isMobile ? "clamp(1.25rem, 6vw, 1.75rem)" : "auto",
+                top: isMobile ? "70%" : "50%",
+                width: isMobile ? "auto" : "min(34rem, 44vw)",
+                transform: isMobile
+                  ? `translate3d(0, ${56 - stagePhase * 56}px, 0)`
+                  : `translate3d(0, calc(${72 - stagePhase * 72}px - 50%), 0)`,
+                willChange: "transform",
+                opacity: paragraphPhase,
+                textAlign: isMobile ? "left" : "initial",
               }}
-            />
-            <h2 className="section-heading text-chrome mb-8 leading-tight">
-              LOWGRADEFILMS
-            </h2>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light mb-4">
-              Machines. Metal. Motion.
-            </p>
-            <p className="text-base text-gray-500 leading-relaxed font-light">
-              An international production house that turns horsepower and steel
-              into cinema. If it's fast, loud, or dangerous — we know how to
-              make it look like it.
-            </p>
-          </motion.div>
+            >
+              <div
+                style={{
+                  position: "relative",
+                  paddingTop: "clamp(1rem, 1.4vw, 1.25rem)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    width: "clamp(3.5rem, 5vw, 5.25rem)",
+                    height: "1px",
+                    background:
+                      "linear-gradient(90deg, rgba(192,192,192,0.95), rgba(232,232,232,0.55), rgba(232,232,232,0))",
+                    opacity: 0.92,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    top: "-0.22rem",
+                    width: "0.42rem",
+                    height: "0.42rem",
+                    borderRadius: "999px",
+                    background: "#d9d9d9",
+                    boxShadow: "0 0 16px rgba(255,255,255,0.22)",
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    color: "#ffffff",
+                    fontSize: isMobile
+                      ? "clamp(1.1rem, 5vw, 1.45rem)"
+                      : "clamp(1.35rem, 2vw, 2rem)",
+                    lineHeight: 1.45,
+                    fontWeight: 700,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  LGF develops visual productions designed to stand apart from
+                  the ordinary, combining refined execution with a relentless
+                  attention to detail.
+                </p>
+              </div>
+            </div>
 
+            <div
+              style={{
+                position: "absolute",
+                left: isMobile ? "50%" : "50%",
+                top: isMobile ? "36%" : "50%",
+                width: isMobile ? "min(18rem, 76vw)" : "min(28rem, 42vw)",
+                transform: isMobile
+                  ? `translate3d(-50%, ${18 - heroLinePhase * 18}px, 0)`
+                  : `translate3d(${20 - heroLinePhase * 10}px, ${20 - heroLinePhase * 20}px, 0)`,
+                opacity: heroLineOpacity,
+                willChange: "transform, opacity",
+                textAlign: isMobile ? "center" : "left",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  display: "inline-block",
+                  fontSize: "clamp(1.5rem, 2.4vw, 2.35rem)",
+                  lineHeight: 1.18,
+                  fontWeight: 700,
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                <span
+                  style={{
+                    display: "block",
+                    color: "rgba(255,255,255,0.28)",
+                  }}
+                >
+                  Machines. Metal. Motion.
+                </span>
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "block",
+                    color: "#ffffff",
+                    clipPath: `inset(0 ${100 - heroFillPhase * 100}% 0 0)`,
+                    willChange: "clip-path",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                  }}
+                >
+                  Machines. Metal. Motion.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* ── 3D rig — now a sibling of the clip-path box, not a child ──
+              It handles its own reveal entirely via opacity/transform below,
+              and is properly centered with translateY(-50%) so its tall
+              bounding box doesn't overflow into the section beneath. */}
           <div
-            ref={sceneRef}
-            className="order-1 lg:order-2 mb-2 lg:mb-0"
             style={{
               position: "absolute",
-              left: "50%",
-              top: "34%",
-              transform: "translate(-50%, -50%)",
-              width: "min(1680px, 146vw)",
-              height: 700,
-              zIndex: 20,
+              left: isMobile ? "48.5%" : "auto",
+              right: isMobile ? "auto" : "clamp(5rem, 16vw, 14rem)",
+              top: isMobile ? "35%" : "50%",
+              width: isMobile ? "min(88vw, 500px)" : "min(46vw, 700px)",
+              height: isMobile ? "min(52vh, 460px)" : "min(68vh, 720px)",
               pointerEvents: "none",
-              ...(typeof window !== "undefined" && window.innerWidth < 1024
-                ? {
-                    position: "relative",
-                    left: "auto",
-                    top: "auto",
-                    transform: "none",
-                    width: "100%",
-                    height: 360,
-                    zIndex: 10,
-                    marginBottom: 8,
-                  }
-                : {}),
+              filter: "drop-shadow(0 28px 70px rgba(0,0,0,0.46))",
+              transform: isMobile
+                ? `translate3d(calc(-50% + ${14 - easedRigSettlePhase * 14}px), calc(-50% + ${10 - easedRigSettlePhase * 10}px), 0)`
+                : `translate3d(${48 - easedRigSettlePhase * 58}px, calc(-50% + ${18 - easedRigSettlePhase * 8}px), 0)`,
+              transformOrigin: "center center",
+              overflow: "visible",
+              opacity: 0.14 + rigPhase * 0.86,
+              willChange: "transform, opacity",
             }}
           >
-            {show3D && (
+            <div
+              style={{
+                position: "absolute",
+                inset: isMobile
+                  ? "0 0.55rem 0 0"
+                  : "clamp(0.2rem, 0.8vw, 0.8rem) clamp(1.4rem, 3vw, 2.6rem) clamp(0.8rem, 1.8vw, 1.6rem) clamp(0.2rem, 0.8vw, 0.8rem)",
+              }}
+            >
               <Suspense fallback={null}>
-                <CameraGimbalScene progress={progress} panProgress={panProgress} />
+                <CameraGimbalScene
+                  progress={rigProgressRef}
+                  panProgress={rigPanRef}
+                />
               </Suspense>
-            )}
+            </div>
           </div>
         </div>
+
       </div>
-    </section>
+    </div>
   );
 }

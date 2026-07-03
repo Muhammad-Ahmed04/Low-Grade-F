@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -38,16 +38,63 @@ const labelClass = "ui-eyebrow text-gray-300";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [submitState, setSubmitState] = useState<{
+    tone: "idle" | "success" | "error";
+    message: string;
+  }>({ tone: "idle", message: "" });
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", email: "", projectType: "", message: "" },
   });
 
-  const onSubmit = (values: FormValues) => {
-    console.log(values);
-    alert("Message received. We'll be in touch.");
-    form.reset();
+  const onSubmit = async (values: FormValues) => {
+    setSubmitState({ tone: "idle", message: "" });
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT.email)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            projectType: values.projectType,
+            message: values.message,
+            _subject: `New LGF inquiry: ${values.projectType}`,
+            _captcha: "false",
+            _template: "table",
+          }),
+        },
+      );
+
+      const data = (await response.json()) as {
+        success?: string | boolean;
+        message?: string;
+      };
+
+      if (!response.ok || data.success === false || data.success === "false") {
+        throw new Error(data.message || "Unable to send your message right now.");
+      }
+
+      setSubmitState({
+        tone: "success",
+        message: "Message sent. We’ll be in touch shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      setSubmitState({
+        tone: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong while sending your message.",
+      });
+    }
   };
 
   useEffect(() => {
@@ -178,10 +225,12 @@ export default function Contact() {
                             <SelectValue placeholder="Select type" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-[#0a0a0a] border-[#333] text-white surface-rounded-sm">
-                          <SelectItem value="Automobile">Automobile</SelectItem>
-                          <SelectItem value="Tactical">Tactical / Firearms</SelectItem>
-                          <SelectItem value="Commercial">Commercial / Brand</SelectItem>
+                          <SelectContent className="bg-[#0a0a0a] border-[#333] text-white surface-rounded-sm">
+                          <SelectItem value="Automobile">Automobile Productions</SelectItem>
+                          <SelectItem value="Tactical">Tactical & Firearms</SelectItem>
+                          <SelectItem value="Commercial">Commercial Campaigns</SelectItem>
+                          <SelectItem value="Product Launch">Product Launch</SelectItem>
+                          <SelectItem value="Corporate Films">Corporate Films</SelectItem>
                           <SelectItem value="Other">Other</SelectItem>
                         </SelectContent>
                       </Select>
@@ -212,11 +261,23 @@ export default function Contact() {
                 <button
                   data-testid="button-submit"
                   type="submit"
+                  disabled={form.formState.isSubmitting}
                   className="ui-cta-text group flex w-full items-center justify-center surface-rounded-sm border border-[rgba(232,232,232,0.6)] bg-transparent px-6 text-white transition-colors duration-300 hover:bg-white hover:text-black"
                   style={{ height: 56 }}
                 >
-                  Send Message
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </button>
+                {submitState.message ? (
+                  <p
+                    className={
+                      submitState.tone === "error"
+                        ? "ui-body text-sm text-red-400"
+                        : "ui-body text-sm text-gray-300"
+                    }
+                  >
+                    {submitState.message}
+                  </p>
+                ) : null}
               </form>
             </Form>
           </div>
