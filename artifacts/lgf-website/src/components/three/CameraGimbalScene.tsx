@@ -45,12 +45,12 @@ const TUNING = {
   // Camera: where it floats at scroll start → where it locks onto the mount.
   // End sits the camera base on the gimbal's mounting rail (arm.004, which is
   // centred near the top over the base), level, lens pointing forward (+Z).
-  cameraStart: new THREE.Vector3(2.7, 1.8, 0.8),
+  cameraStart: new THREE.Vector3(2.35, 1.58, 0.68),
   cameraEnd: new THREE.Vector3(0.4, 0.52, -0.01),
   cameraStartRot: new THREE.Euler(0.45, -0.8, 0.35),
   cameraEndRot: new THREE.Euler(0, 1.1, 0),
   // Gimbal: where it sits at scroll start → its settled, centred position.
-  gimbalStart: new THREE.Vector3(-2.4, -1.5, -0.6),
+  gimbalStart: new THREE.Vector3(-2.1, -1.34, -0.5),
   gimbalEnd: new THREE.Vector3(0, -0.65, 0),
   gimbalStartRot: new THREE.Euler(-0.3, 0.7, -0.2),
   gimbalEndRot: new THREE.Euler(0, -0.35, 0),
@@ -71,25 +71,25 @@ const easeInOutCubic = (x: number) =>
 
 function buildCameraMaterials(): THREE.MeshStandardMaterial[] {
   const body = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#202022"),
+    color: new THREE.Color("#232022"),
     metalness: 0.82,
-    roughness: 0.5,
-    envMapIntensity: 1.0,
+    roughness: 0.46,
+    envMapIntensity: 1.1,
   });
   const lens = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#3c3c3e"),
+    color: new THREE.Color("#433a3e"),
     metalness: 0.85,
-    roughness: 0.38,
-    envMapIntensity: 1.15,
+    roughness: 0.34,
+    envMapIntensity: 1.22,
   });
   const trim = new THREE.MeshStandardMaterial({
-    color: new THREE.Color("#888888"),
+    color: new THREE.Color("#92868a"),
     metalness: 0.95,
-    roughness: 0.22,
-    envMapIntensity: 1.3,
+    roughness: 0.2,
+    envMapIntensity: 1.42,
   });
   const glass = new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color("#0d0d0f"),
+    color: new THREE.Color("#120d10"),
     metalness: 0.0,
     roughness: 0.04,
     transmission: 0.14,
@@ -173,8 +173,6 @@ function Assembly({
   panProgress: ProgressRef;
 }) {
   const groupRef = useRef<THREE.Group>(null);
-  const smooth = useRef(0);
-  const smoothPan = useRef(0);
 
   const cameraMaterials = useMemo(() => buildCameraMaterials(), []);
   const gimbalMaterials = useMemo(() => buildGimbalMaterials(), []);
@@ -226,21 +224,11 @@ function Assembly({
       return;
     }
 
-    smooth.current = THREE.MathUtils.damp(
-      smooth.current,
-      THREE.MathUtils.clamp(progress.current, 0, 1),
-      4,
-      delta,
-    );
-    const e = easeInOutCubic(smooth.current);
+    const targetProgress = THREE.MathUtils.clamp(progress.current, 0, 1);
+    const e = easeInOutCubic(targetProgress);
 
-    smoothPan.current = THREE.MathUtils.damp(
-      smoothPan.current,
-      THREE.MathUtils.clamp(panProgress.current, 0, 1),
-      PAN_DAMPING,
-      delta,
-    );
-    const panProgressValue = panProgress.current >= 0.995 ? 1 : smoothPan.current;
+    const targetPan = THREE.MathUtils.clamp(panProgress.current, 0, 1);
+    const panProgressValue = targetPan;
     const panEase = easeInOutCubic(panProgressValue);
     const panBlend = THREE.MathUtils.smoothstep(e, PAN_BLEND_START, PAN_BLEND_END);
     const effectivePan = panEase * panBlend;
@@ -309,15 +297,21 @@ function Studio() {
       />
       <pointLight
         position={[2.15, 1.45, 2.35]}
-        intensity={0.6}
-        distance={4.2}
+        intensity={0.92}
+        distance={4.8}
         color="#ff5a5a"
       />
       <pointLight
-        position={[1.55, 0.95, 3.15]}
-        intensity={0.35}
-        distance={3}
+        position={[1.2, 1.15, 2.55]}
+        intensity={0.58}
+        distance={3.8}
         color="#ff7a7a"
+      />
+      <pointLight
+        position={[0.65, 1.3, 2.1]}
+        intensity={0.32}
+        distance={2.8}
+        color="#ff6464"
       />
 
       <SpotLight
@@ -359,15 +353,15 @@ function Studio() {
           color="#3a7bd5"
         />
         <Lightformer
-          intensity={0.8}
-          position={[4.3, 1.7, 2.8]}
-          scale={[1.1, 4.2, 1]}
+          intensity={1.25}
+          position={[3.5, 1.95, 2.45]}
+          scale={[1.25, 4.8, 1]}
           color="#c93e4d"
         />
         <Lightformer
-          intensity={0.5}
-          position={[3.4, 0.9, 4.2]}
-          scale={[0.9, 2.3, 1]}
+          intensity={0.82}
+          position={[2.65, 1.15, 3.35]}
+          scale={[1.05, 2.8, 1]}
           color="#ff6a6a"
         />
         <Lightformer

@@ -37,6 +37,26 @@
   --section-side-padding: clamp(1.5rem, 4vw, 4rem);
 }
 
+@media (max-width: 1024px) {
+  :root {
+    --section-space-y: clamp(4rem, 7vw, 6rem);
+    --section-space-y-tight: clamp(3.75rem, 6vw, 5.5rem);
+    --section-heading-size: clamp(2rem, 4.2vw, 2.375rem);
+    --section-heading-size-xl: clamp(2rem, 4.2vw, 2.375rem);
+    --section-side-padding: clamp(1.25rem, 4vw, 2.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --section-space-y: clamp(3.5rem, 9vw, 4.75rem);
+    --section-space-y-tight: clamp(3rem, 8vw, 4.25rem);
+    --section-heading-size: clamp(1.95rem, 8vw, 2.25rem);
+    --section-heading-size-xl: clamp(1.95rem, 8vw, 2.25rem);
+    --section-side-padding: clamp(1rem, 5vw, 1.5rem);
+  }
+}
+
 .dark {
   --background: #000000;
   --foreground: #ffffff;
@@ -176,7 +196,8 @@ iframe.surface-rounded,
 input.surface-rounded,
 textarea.surface-rounded,
 button.surface-rounded {
-  overflow: hidden;
+  display: block;
+  max-width: 100%;
 }
 
 /* Films cards & panels */
@@ -187,16 +208,19 @@ button.surface-rounded {
 }
 
 .films-panel-box {
+  --frame-radius: clamp(22px, 1.8vw, 28px);
   width: 100%;
   aspect-ratio: 1 / 1;
-  min-height: clamp(500px, 47.8vw, 660px);
-  border-radius: var(--radius);
+  min-height: clamp(460px, 46vw, 660px);
+  border-radius: var(--frame-radius);
   overflow: hidden;
   isolation: isolate;
+  contain: paint;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-  clip-path: inset(0 round var(--radius));
+  clip-path: inset(0 round var(--frame-radius));
   background: #000;
   transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .films-media-mask {
@@ -204,26 +228,54 @@ button.surface-rounded {
   inset: 0;
   overflow: hidden;
   border-radius: inherit;
-  clip-path: inset(0 round inherit);
+  clip-path: inset(0 round var(--frame-radius, 28px));
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   transform: translateZ(0);
+  contain: paint;
+  backface-visibility: hidden;
 }
 
 .films-panel-box .vimeo-cover {
   border-radius: inherit;
 }
 
+.hero-video-shell,
+.hero-video-shell iframe,
+.films-media-mask iframe,
+.films-media-mask video,
+.films-media-mask img {
+  display: block;
+  backface-visibility: hidden;
+}
+
+.hero-video-shell,
+.films-media-mask {
+  overflow: hidden;
+  isolation: isolate;
+  contain: paint;
+  transform: translateZ(0);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .films-card {
+    flex: 0 0 min(78vw, 620px);
+    width: min(78vw, 620px);
+    max-width: min(78vw, 620px);
+  }
+}
+
 @media (max-width: 767px) {
   .films-card {
-    flex: 0 0 min(88vw, 460px);
-    width: min(88vw, 460px);
-    max-width: min(88vw, 460px);
+    flex: 0 0 min(92vw, 460px);
+    width: min(92vw, 460px);
+    max-width: min(92vw, 460px);
   }
   .films-panel-box {
     aspect-ratio: 0.9 / 1;
-    min-height: clamp(270px, 82vw, 380px);
-    border-radius: 28px;
-    clip-path: inset(0 round 28px);
+    min-height: clamp(320px, 92vw, 410px);
+    --frame-radius: 28px;
+    border-radius: var(--frame-radius);
+    clip-path: inset(0 round var(--frame-radius));
   }
 
   .films-panel-box .vimeo-cover {
@@ -246,6 +298,8 @@ button.surface-rounded {
   min-width: 100%;
   min-height: 100%;
   border: none;
+  display: block;
+  backface-visibility: hidden;
 }
 
 /* GPU-accelerated video rendering — eliminates stutter */
@@ -311,6 +365,12 @@ button.surface-rounded {
   }
   .marquee-track {
     animation-duration: 45s;
+  }
+}
+
+@media (max-width: 1024px) {
+  behold-widget {
+    max-width: 100%;
   }
 }
 

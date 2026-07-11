@@ -56,7 +56,7 @@ export default function Films() {
       </div>
 
       <div
-        className="flex flex-col md:flex-row items-start justify-center mx-auto px-4 md:px-8 lg:px-10"
+        className="flex flex-col lg:flex-row items-start justify-center mx-auto px-4 md:px-6 lg:px-10"
         style={{ gap: "clamp(1.5rem, 5vw, 82px)" }}
       >
         <div className="flex flex-col films-card films-anim">
@@ -131,21 +131,6 @@ export default function Films() {
           </div>
         </div>
       </div>
-
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: -2,
-          height: "clamp(180px, 24vw, 320px)",
-          pointerEvents: "none",
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(8,8,10,0.18) 22%, rgba(12,12,14,0.42) 56%, rgba(18,18,22,0.76) 82%, #18181b 100%)",
-          zIndex: 1,
-        }}
-      />
     </section>
   );
 }

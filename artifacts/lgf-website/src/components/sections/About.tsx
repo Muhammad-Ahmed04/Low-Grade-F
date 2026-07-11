@@ -20,6 +20,9 @@ export default function About() {
   const pinRef     = useRef<HTMLDivElement>(null);
   const rigProgressRef = useRef(1);
   const rigPanRef = useRef(1);
+  const targetProgressRef = useRef(0);
+  const smoothProgressRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -37,21 +40,69 @@ export default function About() {
     if (!track || !pinEl) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      targetProgressRef.current = 1;
+      smoothProgressRef.current = 1;
       setProgress(1);
       return;
     }
 
+    targetProgressRef.current = smoothProgressRef.current;
+
+    const refresh = () => ScrollTrigger.refresh();
     const trigger = ScrollTrigger.create({
       trigger: track,
       start: "top top",
-      end: "bottom bottom",
+      end: () => `+=${Math.max(1, track.offsetHeight - window.innerHeight)}`,
       pin: pinEl,
       pinSpacing: true,
-      scrub: isMobile ? 0.28 : 0.42,
-      onUpdate: (self) => setProgress(self.progress),
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      scrub: true,
+      fastScrollEnd: false,
+      onUpdate: (self) => {
+        targetProgressRef.current = self.progress;
+      },
+      onRefresh: (self) => {
+        targetProgressRef.current = self.progress;
+        smoothProgressRef.current = self.progress;
+        setProgress(self.progress);
+      },
     });
 
-    return () => trigger.kill();
+    const tick = () => {
+      const target = targetProgressRef.current;
+      const current = smoothProgressRef.current;
+      const delta = target - current;
+      const ease = isMobile ? 0.16 : 0.11;
+      const next =
+        Math.abs(delta) < 0.0015 ? target : current + delta * ease;
+
+      smoothProgressRef.current = next;
+
+      setProgress((prev) => {
+        if (Math.abs(prev - next) < 0.0008) return prev;
+        return next;
+      });
+
+      rafRef.current = window.requestAnimationFrame(tick);
+    };
+
+    rafRef.current = window.requestAnimationFrame(tick);
+
+    const rafA = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(refresh);
+    });
+    window.addEventListener("load", refresh);
+    document.fonts?.ready.then(refresh).catch(() => undefined);
+
+    return () => {
+      if (rafRef.current !== null) {
+        window.cancelAnimationFrame(rafRef.current);
+      }
+      window.cancelAnimationFrame(rafA);
+      window.removeEventListener("load", refresh);
+      trigger.kill();
+    };
   }, [isMobile]);
 
   /*
@@ -63,29 +114,31 @@ export default function About() {
    * 0.50–0.72  text2 rises in
    * 0.72–1.00  HOLD — user sees text2, then scrolls past
    */
-  const linePhase    = clamp01((progress - 0.12) / 0.06);
-  const panelPhase   = clamp01((progress - 0.18) / 0.15);
-  const text1Fade    = clamp01((progress - 0.33) / 0.07);
-  const swapPhase    = clamp01((progress - 0.4) / 0.18);
+  const visualProgress = clamp01(progress / (isMobile ? 0.92 : 0.94));
 
-  const panelVisible = progress >= 0.12 ? 1 : 0;
+  const linePhase    = clamp01((visualProgress - 0.12) / 0.06);
+  const panelPhase   = clamp01((visualProgress - 0.18) / 0.15);
+  const text1Fade    = clamp01((visualProgress - 0.33) / 0.07);
+  const swapPhase    = clamp01((visualProgress - 0.4) / 0.18);
+
+  const panelVisible = visualProgress >= 0.12 ? 1 : 0;
   const lineVisible  = panelPhase < 0.96 ? panelVisible : 0;
-  const stagePhase = clamp01((progress - 0.72) / 0.16);
+  const stagePhase = clamp01((visualProgress - 0.72) / 0.16);
   const rigPhase = isMobile
-    ? clamp01((progress - 0.72) / 0.2)
-    : clamp01((progress - 0.7) / 0.24);
+    ? clamp01((visualProgress - 0.66) / 0.3)
+    : clamp01((visualProgress - 0.62) / 0.36);
   const rigSettlePhase = isMobile
-    ? clamp01((progress - 0.84) / 0.1)
-    : clamp01((progress - 0.85) / 0.1);
+    ? clamp01((visualProgress - 0.84) / 0.1)
+    : clamp01((visualProgress - 0.86) / 0.1);
   // Hero line: fade in 0.40–0.48, hold 0.48–0.58, fade out 0.58–0.66.
   // Fully opaque during the hold, fully gone (0 opacity) by 0.66 —
   // guaranteed no overlap with the paragraph, which starts at 0.66.
-  const heroInPhase = clamp01((progress - 0.4) / 0.07);
-  const heroFillPhase = clamp01((progress - 0.48) / 0.18);
-  const heroOutPhase = clamp01((progress - 0.68) / 0.06);
+  const heroInPhase = clamp01((visualProgress - 0.4) / 0.07);
+  const heroFillPhase = clamp01((visualProgress - 0.48) / 0.18);
+  const heroOutPhase = clamp01((visualProgress - 0.68) / 0.06);
   const heroLineOpacity = heroInPhase * (1 - heroOutPhase);
   const heroLinePhase = heroInPhase; // drives the slide-in transform only
-  const paragraphPhase = clamp01((progress - 0.72) / 0.1);
+  const paragraphPhase = clamp01((visualProgress - 0.72) / 0.1);
   const easedRigSettlePhase = easeInOutCubic(rigSettlePhase);
 
   rigProgressRef.current = rigPhase;
@@ -95,7 +148,11 @@ export default function About() {
     <div
       ref={wrapperRef}
       id="about"
-      style={{ height: isMobile ? "300vh" : "260vh", position: "relative" }}
+      style={{
+        height: isMobile ? "360vh" : "320vh",
+        position: "relative",
+        background: "#000",
+      }}
     >
       <div
         ref={pinRef}
@@ -110,6 +167,20 @@ export default function About() {
       >
 
         {/* ── Text 1 — already settled, no fly-in ──────────────────────── */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "clamp(140px, 18vw, 240px)",
+            pointerEvents: "none",
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.86) 18%, rgba(0,0,0,0.54) 42%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0) 100%)",
+            zIndex: 2,
+          }}
+        />
         <div
           style={{
             position: "absolute",

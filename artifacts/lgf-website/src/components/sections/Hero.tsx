@@ -55,7 +55,7 @@ export default function Hero() {
         {/* Vimeo background — deferred until idle, fades in over poster */}
         {showVideo && (
           <div
-            className="absolute inset-0 overflow-hidden"
+            className="absolute inset-0 overflow-hidden hero-video-shell"
             style={{
               pointerEvents: "none",
               opacity: videoReady ? 1 : 0,

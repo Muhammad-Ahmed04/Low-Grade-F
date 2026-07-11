@@ -79,7 +79,12 @@ export default function Community() {
         {visible && (
           <div
             className="community-anim"
-            style={{ maxWidth: 1200, width: "100%", margin: "0 auto 48px" }}
+            style={{
+              maxWidth: 1200,
+              width: "100%",
+              margin: "0 auto 48px",
+              minHeight: "clamp(420px, 62vw, 820px)",
+            }}
             dangerouslySetInnerHTML={{
               __html: `<behold-widget feed-id="${BEHOLD_FEED_ID}"></behold-widget>`,
             }}
