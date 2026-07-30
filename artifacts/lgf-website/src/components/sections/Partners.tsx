@@ -14,12 +14,12 @@ function LogoItem({
   return (
     <div
       style={{
-        flexShrink: 0,
+        flex: "0 0 clamp(132px, 12vw, 190px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "0 clamp(18px, 3.6vw, 34px)",
-        minWidth: "clamp(132px, 12vw, 190px)",
+        width: "clamp(132px, 12vw, 190px)",
+        padding: "0 clamp(12px, 2.2vw, 22px)",
         height: "clamp(68px, 7vw, 88px)",
         overflow: "visible",
       }}
@@ -66,8 +66,12 @@ export default function Partners() {
       </div>
 
       <div
-        className="relative w-full overflow-hidden bg-[#050505] marquee-wrapper surface-rounded"
-        style={{ borderTop: "1px solid rgba(192,192,192,0.15)", borderBottom: "1px solid rgba(192,192,192,0.15)" }}
+        className="relative w-full overflow-hidden bg-[#050505] marquee-wrapper"
+        style={{
+          borderTop: "1px solid rgba(192,192,192,0.15)",
+          borderBottom: "1px solid rgba(192,192,192,0.15)",
+          borderRadius: 0,
+        }}
       >
         {/* Edge fades */}
         <div className="absolute left-0 top-0 bottom-0 pointer-events-none" style={{ width: "clamp(60px, 10vw, 160px)", background: "linear-gradient(to right, #050505 20%, transparent)", zIndex: 10 }} />

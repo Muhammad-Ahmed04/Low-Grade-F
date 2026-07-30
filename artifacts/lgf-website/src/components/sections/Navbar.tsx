@@ -1,12 +1,29 @@
 import { useState } from "react";
 import { List, X } from "@phosphor-icons/react";
 import { NAV_LINKS } from "@/constants";
+import { useLocation } from "wouter";
+import { getNavHref, normalizeRoutePath } from "@/lib/site";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [location] = useLocation();
+  const currentPath = normalizeRoutePath(location);
+  const navItems = NAV_LINKS.map(({ label, href }) => ({
+    label,
+    href: getNavHref(
+      currentPath,
+      href.replace("#", "") as
+        | "work"
+        | "films"
+        | "about"
+        | "partners"
+        | "contact",
+    ),
+  }));
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
+    if (!href.startsWith("#")) return;
     setTimeout(() => {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     }, 50);
@@ -21,14 +38,14 @@ export default function Navbar() {
       >
         <div className="relative flex items-center justify-between px-6 lg:px-10 pt-5 md:pt-6">
           <a
-            href="#"
+            href="/"
             data-testid="link-logo"
             className="inline-flex items-center justify-center"
           >
             <img
               src="/lgf-logo.png"
               alt="LOWGRADEFILMS"
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-[3.9rem] md:h-[4.4rem] w-auto object-contain"
             />
           </a>
 
@@ -63,14 +80,18 @@ export default function Navbar() {
         </button>
 
         <nav className="flex flex-col gap-7 text-center">
-          {NAV_LINKS.map(({ label, href }) => (
+          {navItems.map(({ label, href }) => (
             <a
               key={label}
               href={href}
               data-testid={`link-mobile-nav-${label.toLowerCase()}`}
               onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(href);
+                if (href.startsWith("#")) {
+                  e.preventDefault();
+                  handleNavClick(href);
+                } else {
+                  setMenuOpen(false);
+                }
               }}
               className="ui-card-title text-white"
               style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}

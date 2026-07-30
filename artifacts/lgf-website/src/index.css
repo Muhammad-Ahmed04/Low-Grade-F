@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;0,700;0,800;0,900;1,300;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -6,18 +6,64 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: "Michelin Black";
-  src: url("https://www.the-lowdown.com/wp-content/uploads/useanyfont/5737Michelin-Black.woff2") format("woff2");
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-Light.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-Regular.ttf") format("truetype");
   font-display: swap;
   font-style: normal;
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-Medium.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-Bold.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Yapari";
+  src: url("/fonts/YapariTrial-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Nunito Sans', sans-serif;
-  --font-display: 'Michelin Black', 'Nunito Sans', sans-serif;
+  --font-primary: 'Yapari', 'Helvetica Neue', Arial, sans-serif;
+  --font-legacy: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-primary);
+  --font-display: var(--font-primary);
+  --fw-heading: 800;
+  --fw-subheading: 600;
+  --fw-body: 400;
+  --fw-label: 500;
 }
 
 :root {
@@ -49,8 +95,8 @@
 
 @media (max-width: 767px) {
   :root {
-    --section-space-y: clamp(3.5rem, 9vw, 4.75rem);
-    --section-space-y-tight: clamp(3rem, 8vw, 4.25rem);
+    --section-space-y: clamp(4rem, 10vw, 5.25rem);
+    --section-space-y-tight: clamp(3.4rem, 9vw, 4.6rem);
     --section-heading-size: clamp(1.95rem, 8vw, 2.25rem);
     --section-heading-size-xl: clamp(1.95rem, 8vw, 2.25rem);
     --section-side-padding: clamp(1rem, 5vw, 1.5rem);
@@ -81,10 +127,76 @@
     background-color: #000000;
     color: #ffffff;
     overflow-x: hidden;
+    font-family: var(--font-primary);
+    font-weight: var(--fw-body);
+  }
+  h1, h2, h3, h4, h5, h6,
+  p,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  span,
+  li {
+    font-family: var(--font-primary);
+  }
+  h1, h2 {
+    font-weight: var(--fw-heading);
+  }
+  h3, h4 {
+    font-weight: var(--fw-subheading);
+  }
+  h5, h6,
+  label {
+    font-weight: var(--fw-label);
+  }
+  p, input, textarea, select, li {
+    font-weight: var(--fw-body);
   }
 }
 
 @layer utilities {
+  .font-thin {
+    font-weight: 100;
+  }
+
+  .font-extralight,
+  .font-light {
+    font-weight: 300;
+  }
+
+  .font-normal {
+    font-weight: var(--fw-body);
+  }
+
+  .font-medium {
+    font-weight: var(--fw-label);
+  }
+
+  .font-semibold {
+    font-weight: var(--fw-subheading);
+  }
+
+  .font-bold,
+  .font-extrabold,
+  .font-black {
+    font-weight: var(--fw-heading);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .section-shell {
     padding-top: var(--section-space-y);
     padding-bottom: var(--section-space-y);
@@ -105,56 +217,58 @@
   }
 
   .section-heading {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: var(--section-heading-size);
     line-height: 1.175;
     letter-spacing: 0;
-    font-weight: 800;
+    font-weight: var(--fw-heading);
     text-transform: uppercase;
   }
 
   .section-heading-xl {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: var(--section-heading-size-xl);
     line-height: 1.175;
     letter-spacing: 0;
-    font-weight: 800;
+    font-weight: var(--fw-heading);
     text-transform: uppercase;
   }
 
   .ui-card-title {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: clamp(1.25rem, 1.6vw, 1.75rem);
     line-height: 1.15;
-    font-weight: 800;
-    font-style: italic;
+    font-weight: var(--fw-heading);
     letter-spacing: 0.01em;
     text-transform: uppercase;
   }
 
   .ui-eyebrow {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: 0.75rem;
     line-height: 1.2;
-    font-weight: 800;
+    font-weight: var(--fw-label);
     letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
   .ui-cta-text {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: 0.8125rem;
     line-height: 1.2;
-    font-weight: 800;
-    font-style: italic;
-    letter-spacing: 0.02em;
+    font-weight: var(--fw-label);
+    letter-spacing: 0.07em;
     text-transform: uppercase;
   }
 
+  .font-legacy {
+    font-family: var(--font-legacy) !important;
+  }
+
   .ui-body {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: var(--fw-body);
   }
 
   .surface-rounded {
@@ -201,17 +315,24 @@ button.surface-rounded {
 }
 
 /* Films cards & panels */
+.films-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .films-card {
-  flex: 0 1 min(47.8vw, 660px);
-  width: min(47.8vw, 660px);
-  max-width: min(47.8vw, 660px);
+  flex: 0 1 min(42vw, 575px);
+  width: min(42vw, 575px);
+  max-width: min(42vw, 575px);
 }
 
 .films-panel-box {
   --frame-radius: clamp(22px, 1.8vw, 28px);
   width: 100%;
   aspect-ratio: 1 / 1;
-  min-height: clamp(460px, 46vw, 660px);
+  min-height: clamp(420px, 42vw, 575px);
   border-radius: var(--frame-radius);
   overflow: hidden;
   isolation: isolate;
@@ -257,10 +378,36 @@ button.surface-rounded {
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+  .films-layout {
+    max-width: 560px;
+  }
   .films-card {
-    flex: 0 0 min(78vw, 620px);
-    width: min(78vw, 620px);
-    max-width: min(78vw, 620px);
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  .films-panel-box {
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .films-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    max-width: 1240px;
+  }
+
+  .films-card {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .films-panel-box {
+    min-height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -330,15 +477,11 @@ button.surface-rounded {
   will-change: transform;
 }
 
-.marquee-wrapper:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 .partner-logo {
-  height: 64px;
+  height: 58px;
   width: auto;
-  min-width: 124px;
-  max-width: 220px;
+  min-width: 0;
+  max-width: 160px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
@@ -359,9 +502,8 @@ button.surface-rounded {
 
 @media (max-width: 768px) {
   .partner-logo {
-    height: 46px;
-    min-width: 92px;
-    max-width: 168px;
+    height: 42px;
+    max-width: 126px;
   }
   .marquee-track {
     animation-duration: 45s;

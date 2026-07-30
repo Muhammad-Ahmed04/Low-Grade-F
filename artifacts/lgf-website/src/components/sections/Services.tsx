@@ -24,8 +24,8 @@ function ServiceCard({
     <div
       className="group relative overflow-hidden bg-[#0a0a0a] surface-rounded services-anim"
       style={{
-        minHeight: "clamp(320px, 34vw, 470px)",
-        boxShadow: hovered ? "0 0 36px rgba(255,255,255,0.14)" : "none",
+        minHeight: "clamp(340px, 35vw, 490px)",
+        boxShadow: hovered ? "0 0 34px rgba(255,255,255,0.12)" : "none",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -37,8 +37,10 @@ function ServiceCard({
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out"
         style={{
-          transform: "scale(1)",
-          filter: hovered ? "brightness(1.16) saturate(1.08)" : "brightness(1) saturate(1)",
+          transform: hovered ? "scale(1.025)" : "scale(1)",
+          filter: hovered
+            ? "brightness(1.12) saturate(1.06)"
+            : "brightness(0.98) saturate(0.98)",
         }}
         draggable={false}
       />
@@ -46,11 +48,11 @@ function ServiceCard({
       <div
         className="absolute inset-0 transition-opacity duration-500"
         style={{
-          opacity: hovered ? 0.98 : 0.92,
+          opacity: hovered ? 0.97 : 0.9,
           background:
             hovered
-              ? "linear-gradient(to bottom, rgba(30,30,30,0.18) 0%, rgba(0,0,0,0.34) 34%, rgba(0,0,0,0.62) 100%)"
-              : "linear-gradient(to bottom, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.58) 34%, rgba(0,0,0,0.82) 100%)",
+              ? "linear-gradient(to bottom, rgba(18,18,18,0.08) 0%, rgba(0,0,0,0.24) 34%, rgba(0,0,0,0.58) 100%)"
+              : "linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.5) 34%, rgba(0,0,0,0.82) 100%)",
         }}
       />
 
@@ -58,37 +60,50 @@ function ServiceCard({
         className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
           opacity: hovered ? 1 : 0,
-          border: "1px solid rgba(255,255,255,0.18)",
+          border: "1px solid rgba(255,255,255,0.16)",
         }}
       />
 
       <div className="relative h-full flex flex-col p-6 md:p-10" style={{ zIndex: 2 }}>
         <div
-          className="mb-8 md:mb-10 text-white/90 transition-transform duration-300"
+          className="mb-8 md:mb-10 flex items-center justify-between transition-transform duration-300"
           style={{ transform: hovered ? "translateY(-2px)" : "translateY(0)" }}
         >
-          <Icon size={42} weight="thin" />
+          <div
+            className="text-white/92"
+            style={{
+              border: "1px solid rgba(232,232,232,0.16)",
+              background: "rgba(0,0,0,0.24)",
+              backdropFilter: "blur(4px)",
+              WebkitBackdropFilter: "blur(4px)",
+              borderRadius: "999px",
+              padding: "0.75rem",
+            }}
+          >
+            <Icon size={36} weight="thin" />
+          </div>
         </div>
 
         <h3
           className="text-white uppercase font-bold"
           style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "clamp(1.1rem, 1.7vw, 1.5rem)",
-            lineHeight: 1.22,
+            fontSize: "clamp(1.08rem, 1.65vw, 1.42rem)",
+            lineHeight: 1.08,
             letterSpacing: "0.01em",
+            fontWeight: "var(--fw-heading)",
+            maxWidth: "12ch",
           }}
         >
           {title}
         </h3>
 
         <p
-          className="mt-6 text-white/90"
+          className="mt-4 text-white/68"
           style={{
-            fontFamily: "var(--font-sans)",
-            fontSize: "clamp(0.95rem, 1.15vw, 1.05rem)",
-            lineHeight: 1.55,
-            maxWidth: "20ch",
+            fontSize: "clamp(0.92rem, 0.98vw, 0.98rem)",
+            lineHeight: 1.5,
+            maxWidth: "22ch",
+            fontWeight: "var(--fw-body)",
           }}
         >
           {description}
@@ -128,9 +143,20 @@ export default function Services() {
       <div className="container mx-auto section-inner">
         <div className="text-center section-heading-wrap services-anim">
           <h2 className="section-heading text-chrome">WHAT WE DO</h2>
+          <p
+            className="ui-body mx-auto mt-4 text-white/70"
+            style={{
+              maxWidth: "42rem",
+              fontSize: "clamp(0.98rem, 1.15vw, 1.08rem)",
+              lineHeight: 1.62,
+            }}
+          >
+            Purpose-built productions for machines, products, and brands that
+            need sharper visual presence without losing clarity or restraint.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-10">
           {SERVICES.map((service) => (
             <ServiceCard
               key={service.id}

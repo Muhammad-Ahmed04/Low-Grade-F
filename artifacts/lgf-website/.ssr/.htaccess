@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.lowgradefilms\.com$ [NC]
+RewriteRule ^(.*)$ https://lowgradefilms.com/$1 [L,R=301]

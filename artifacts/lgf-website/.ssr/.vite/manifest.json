@@ -1,0 +1,20 @@
+{
+  "src/components/three/CameraGimbalScene.tsx": {
+    "file": "assets/CameraGimbalScene-CI5MpF_N.js",
+    "name": "CameraGimbalScene",
+    "src": "src/components/three/CameraGimbalScene.tsx",
+    "isDynamicEntry": true
+  },
+  "src/entry-server.tsx": {
+    "file": "entry-server.js",
+    "name": "entry-server",
+    "src": "src/entry-server.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/components/three/CameraGimbalScene.tsx"
+    ],
+    "css": [
+      "assets/entry-server-CRJ483sA.css"
+    ]
+  }
+}

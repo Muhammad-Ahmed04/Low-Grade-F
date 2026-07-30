@@ -33,8 +33,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const inputClass =
-  "bg-[#0a0a0a] border-[#333] text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-gray-400 surface-rounded-sm h-12";
-const labelClass = "ui-eyebrow text-gray-300";
+  "bg-[#0a0a0a] border-[#333] text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-gray-400 surface-rounded-sm h-12 font-legacy";
+const labelClass = "ui-eyebrow text-gray-300 font-legacy";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -83,7 +83,7 @@ export default function Contact() {
 
       setSubmitState({
         tone: "success",
-        message: "Message sent. We’ll be in touch shortly.",
+        message: "Message sent. We'll be in touch shortly.",
       });
       form.reset();
     } catch (error) {
@@ -126,7 +126,7 @@ export default function Contact() {
           <h2 className="section-heading text-chrome mb-4 leading-tight">
             LET&apos;S CREATE SOMETHING.
           </h2>
-          <p className="ui-body text-gray-400 text-base md:text-lg">
+          <p className="ui-body text-gray-400 text-base md:text-lg max-w-xl mx-auto font-legacy">
             Drop us a message or hit us on WhatsApp. We respond fast.
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                 <WhatsappLogo size={40} color="#25D366" weight="fill" />
               </div>
               <h3 className="ui-card-title text-white mb-3">Prefer to chat?</h3>
-              <p className="ui-body text-gray-400 mb-8 text-sm md:text-base">
+              <p className="ui-body text-gray-400 mb-8 text-sm md:text-base max-w-[26ch] mx-auto font-legacy">
                 Message us directly on WhatsApp. We&apos;re online and ready to roll.
               </p>
               <a
@@ -149,7 +149,7 @@ export default function Contact() {
                 href={CONTACT.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="ui-cta-text flex items-center justify-center gap-3 px-8 py-4 transition-colors animate-pulse-green w-full surface-rounded-sm"
+                className="ui-cta-text font-legacy flex items-center justify-center gap-3 px-8 py-4 transition-colors animate-pulse-green w-full surface-rounded-sm"
                 style={{ background: "#25D366", color: "#000", minHeight: 52 }}
               >
                 <WhatsappLogo size={20} weight="fill" />
@@ -158,7 +158,7 @@ export default function Contact() {
             </div>
 
             <div className="text-center py-1 md:py-4">
-              <p className="ui-eyebrow text-gray-600 mb-2">Or email us directly</p>
+              <p className="ui-eyebrow text-gray-600 mb-2 font-legacy">Or email us directly</p>
               <a
                 data-testid="link-email"
                 href={`mailto:${CONTACT.email}`}
@@ -220,18 +220,26 @@ export default function Contact() {
                         <FormControl>
                           <SelectTrigger
                             data-testid="select-project-type"
-                            className="bg-[#0a0a0a] border-[#333] text-white focus:ring-1 focus:ring-gray-400 surface-rounded-sm h-12"
+                            className="bg-[#0a0a0a] border-[#333] text-white focus:ring-1 focus:ring-gray-400 surface-rounded-sm h-12 font-legacy [&>span]:font-legacy"
+                            style={{ fontFamily: "var(--font-legacy)" }}
                           >
-                            <SelectValue placeholder="Select type" />
+                            <SelectValue
+                              className="font-legacy"
+                              placeholder="Select type"
+                              style={{ fontFamily: "var(--font-legacy)" }}
+                            />
                           </SelectTrigger>
                         </FormControl>
-                          <SelectContent className="bg-[#0a0a0a] border-[#333] text-white surface-rounded-sm">
-                          <SelectItem value="Automobile">Automobile Productions</SelectItem>
-                          <SelectItem value="Tactical">Tactical & Firearms</SelectItem>
-                          <SelectItem value="Commercial">Commercial Campaigns</SelectItem>
-                          <SelectItem value="Product Launch">Product Launch</SelectItem>
-                          <SelectItem value="Corporate Films">Corporate Films</SelectItem>
-                          <SelectItem value="Other">Other</SelectItem>
+                          <SelectContent
+                            className="bg-[#0a0a0a] border-[#333] text-white surface-rounded-sm font-legacy [&_*]:!font-legacy"
+                            style={{ fontFamily: "var(--font-legacy)" }}
+                          >
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Automobile" style={{ fontFamily: "var(--font-legacy)" }}>Automobile Productions</SelectItem>
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Tactical" style={{ fontFamily: "var(--font-legacy)" }}>Tactical & Firearms</SelectItem>
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Commercial" style={{ fontFamily: "var(--font-legacy)" }}>Commercial Campaigns</SelectItem>
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Product Launch" style={{ fontFamily: "var(--font-legacy)" }}>Product Launch</SelectItem>
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Corporate Films" style={{ fontFamily: "var(--font-legacy)" }}>Corporate Films</SelectItem>
+                          <SelectItem className="font-legacy [&_*]:!font-legacy" value="Other" style={{ fontFamily: "var(--font-legacy)" }}>Other</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage className="text-red-400" />
@@ -249,7 +257,7 @@ export default function Contact() {
                         <Textarea
                           data-testid="textarea-message"
                           placeholder="Tell us about your project..."
-                          className="bg-[#0a0a0a] border-[#333] text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-gray-400 surface-rounded-sm min-h-[130px] resize-none"
+                          className="bg-[#0a0a0a] border-[#333] text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-gray-400 surface-rounded-sm min-h-[130px] resize-none font-legacy"
                           {...field}
                         />
                       </FormControl>
@@ -271,8 +279,8 @@ export default function Contact() {
                   <p
                     className={
                       submitState.tone === "error"
-                        ? "ui-body text-sm text-red-400"
-                        : "ui-body text-sm text-gray-300"
+                        ? "ui-body text-sm text-red-400 font-legacy"
+                        : "ui-body text-sm text-gray-300 font-legacy"
                     }
                   >
                     {submitState.message}

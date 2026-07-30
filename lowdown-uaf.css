@@ -1,0 +1,10 @@
+				@font-face {
+					font-family: 'michelin-black';
+					src: url('/wp-content/uploads/useanyfont/5737Michelin-Black.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/5737Michelin-Black.woff') format('woff');
+					  font-display: auto;
+				}
+
+				.michelin-black{font-family: 'michelin-black' !important;}
+
+		
