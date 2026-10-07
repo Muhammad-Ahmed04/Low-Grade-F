@@ -104,7 +104,7 @@ export const BEHOLD_FEED_ID = "CshoDpAzaLz8Unyr7NmE";
 // ─── Contact ──────────────────────────────────────────────────────────────────
 export const CONTACT = {
   whatsapp: "https://wa.me/96895421806",
-  email: "info@lowgradefilms.com",
+  email: "work@lowgradefilms.com",
   instagram: "https://www.instagram.com/lowgradefilms",
   linkedin: "#",
 } as const;
